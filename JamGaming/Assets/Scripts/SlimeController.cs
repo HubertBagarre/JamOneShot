@@ -83,6 +83,7 @@ public class SlimeController : MonoBehaviour
         else
         {
             travelling = false;
+            animator.SetTrigger(Land);
             _lastAllowedDirection = normalContact;
             transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, normalContact));
             slimeRb.velocity = Vector2.zero;
@@ -90,7 +91,6 @@ public class SlimeController : MonoBehaviour
             _timer = 0;
             onWall = true;
             slimeBase.gameObject.SetActive(true);
-            animator.SetTrigger(Land);
         }
     }
 
