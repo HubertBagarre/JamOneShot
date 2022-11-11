@@ -32,5 +32,9 @@ public class PlayerInfo : MonoBehaviour
     {
         if (isAlive) score++;
     }
-    
+
+    public void CanMove(bool value)
+    {
+        inGameController.enabled = value;
+    }
 }

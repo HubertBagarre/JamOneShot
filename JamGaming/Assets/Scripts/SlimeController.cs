@@ -11,8 +11,9 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private Vector2 inputAxis;
     [SerializeField] private float launchStrength;
     [SerializeField] private Transform arrow;
+    private PlayerInfo infos;
 
-    private bool _onWall;
+    [SerializeField] private bool _onWall;
     private Vector2 _normalContact;
     private Vector2 _launchDirection;
     private bool _split;
@@ -21,6 +22,7 @@ public class SlimeController : MonoBehaviour
     private void Start()
     {
         _onWall = true;
+        infos = GetComponent<PlayerInfo>();
     }
 
     private void FixedUpdate()
@@ -89,5 +91,10 @@ public class SlimeController : MonoBehaviour
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 3;
         Launch();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        other.GetComponent<IEffect>()?.OnTrigger(this);
     }
 }

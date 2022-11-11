@@ -202,6 +202,7 @@ MonoBehaviour:
   inputAxis: {x: 0, y: 0}
   launchStrength: 10
   arrow: {fileID: 6141174289013747228}
+  _onWall: 0
 --- !u!114 &4433941810446120633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 9173938281706318180}
         m_TargetAssemblyTypeName: SlimeController, Assembly-CSharp
-        m_MethodName: Launch
+        m_MethodName: NoRebound
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

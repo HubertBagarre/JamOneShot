@@ -101,6 +101,10 @@ public class GameManager : MonoBehaviour
     private IEnumerator DisplayScoreRoutine()
     {
         yield return wait;
+        foreach (var player in players)
+        {
+            player.CanMove(true);
+        }
         
     }
 
@@ -137,7 +141,9 @@ public class GameManager : MonoBehaviour
 
     public void EliminatePlayer(int playerIndex)
     {
-        players[playerIndex].gameObject.SetActive(false);
+        var player = players[playerIndex];
+        player.gameObject.SetActive(false);
+        player.CanMove(false);
         CheckToEndRound();
     }
 }
