@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 1255367387769711278}
   - component: {fileID: 6537614402871507916}
   - component: {fileID: 3430750864434219313}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Fez
   m_TagString: Untagged
   m_Icon: {fileID: 0}
