@@ -58,8 +58,7 @@ public class SlimeController : MonoBehaviour
         {
             _remainingRebound--;
             _launchDirection = Vector2.Reflect(_launchDirection, _normalContact);
-            slimeRb.velocity = _launchDirection.normalized * speed *
-                               (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
+            slimeRb.velocity = _launchDirection.normalized * speed * (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
             Launch();
         }
         else
@@ -68,6 +67,7 @@ public class SlimeController : MonoBehaviour
             _lastAllowedDirection = _normalContact;
             transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _normalContact));
             slimeRb.velocity = Vector2.zero;
+            slimeRb.bodyType = RigidbodyType2D.Kinematic;
             _timer = 0;
             onWall = true;
         }
@@ -79,6 +79,7 @@ public class SlimeController : MonoBehaviour
         if (_timer < jumpTimerAtLanding) return;
         onWall = false;
         travelling = true;
+        slimeRb.bodyType = RigidbodyType2D.Dynamic;
         transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _launchDirection));
         slimeBody.localRotation = Quaternion.Euler(0, 0, 0);
         slimeRb.AddForce(_launchDirection * launchStrength, ForceMode2D.Impulse);
@@ -130,10 +131,5 @@ public class SlimeController : MonoBehaviour
         _remainingRebound = 3;
         _maxRebound = _remainingRebound;
         Launch();
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        col.GetComponent<IEffect>()?.OnTrigger(this);
     }
 }
