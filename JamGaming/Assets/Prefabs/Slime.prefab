@@ -124,12 +124,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimeRb: {fileID: 4813585092822271016}
   inputAxis: {x: 0, y: 0}
-  launchStrength: 10
   arrow: {fileID: 4813585092992409778}
-  _onWall: 0
+  _onWall: 1
   borneArrow: 0.1
-  speed: 2
-  accelFactor: 0.2
+  speed: 10
+  accelFactor: 0.01
+  launchStrength: 10
+  canLook: 0
+  canJump: 0
 --- !u!114 &4813585092822271020
 MonoBehaviour:
   m_ObjectHideFlags: 0
