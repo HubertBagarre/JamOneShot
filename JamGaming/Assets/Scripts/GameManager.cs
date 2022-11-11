@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("Config"),SerializeField] private List<Map> maps = new ();
+    
     [SerializeField] private List<ScoreDisplayer> displayers = new List<ScoreDisplayer>();
     [SerializeField] private TextMeshProUGUI timeDisplayText;
     [SerializeField] private float maxRoundTime = 90f;
@@ -19,7 +21,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Current Game")]
     public static List<PlayerInfo> players = new List<PlayerInfo>();
-
+    private List<Map> playedMaps = new List<Map>();
     private int winnerIndex;
     [SerializeField] private Map currentMap;
     private GameObject currentMapObj;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
     private void SetupGame()
     {
         Debug.Log($"Setting up  game with {players.Count} players");
+        playedMaps.Clear();
         currentRound = -1;
         waitScore = new WaitForSeconds(displayDuration);
         waitMove = new WaitForSeconds(timeBeforeMove);
@@ -193,7 +196,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Changing Map");
         if(currentMapObj!=null) Destroy(currentMapObj);
-        currentMap = maps[0];
+        if (maps.Count <= 0)
+        {
+            maps = playedMaps.ToList();
+            playedMaps.Clear();
+        }
+        currentMap = maps[Random.Range(0,maps.Count)];
+        playedMaps.Add(currentMap);
+        maps.Remove(currentMap);
         currentMapObj = Instantiate(currentMap, Vector3.zero, Quaternion.identity).gameObject;
     }
 
