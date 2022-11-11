@@ -6,6 +6,6 @@ public class SlidingZone : MonoBehaviour, IEffect
 {
     public void OnTrigger(SlimeController slimeController)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }
