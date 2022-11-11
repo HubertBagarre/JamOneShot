@@ -7,6 +7,8 @@ public class KillZone : MonoBehaviour, IEffect
     public void OnTrigger(SlimeController slimeController)
     {
         Debug.Log("OOF");
-        GameManager.instance.EliminatePlayer(slimeController.GetComponent<PlayerInfo>().playerIndex);
+        var gm = GameManager.instance;
+        if(gm == null) Debug.Log("No gm");
+        gm.EliminatePlayer(slimeController.GetComponent<PlayerInfo>().playerIndex);
     }
 }

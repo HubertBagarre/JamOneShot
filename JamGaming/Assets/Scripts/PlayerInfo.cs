@@ -10,7 +10,9 @@ public class PlayerInfo : MonoBehaviour
     
     public int score = 0;
     public bool isAlive = false;
-    
+    public bool isHatActive = false;
+
+    [SerializeField] private Transform hatParent;
     private LobbyController lobbyController;
     private SlimeController inGameController;
     
@@ -22,10 +24,12 @@ public class PlayerInfo : MonoBehaviour
 
     public void SetupForGame()
     {
+        Debug.Log($"Setting Player {playerIndex} for game");
         score = 0;
         lobbyController.isInLobby = false;
         inGameController.enabled = false;
         isAlive = false;
+        SetHatActive(false);
     }
 
     public void IncreaseScore()
@@ -36,5 +40,11 @@ public class PlayerInfo : MonoBehaviour
     public void CanMove(bool value)
     {
         inGameController.enabled = value;
+    }
+
+    public void SetHatActive(bool value)
+    {
+        isHatActive = value;
+        hatParent.gameObject.SetActive(isHatActive);
     }
 }
