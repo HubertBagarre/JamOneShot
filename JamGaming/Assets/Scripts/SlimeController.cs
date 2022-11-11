@@ -89,13 +89,15 @@ public class SlimeController : MonoBehaviour
             slimeRb.bodyType = RigidbodyType2D.Kinematic;
             _timer = 0;
             onWall = true;
-            //animator.SetTrigger(Land);
+            slimeBase.gameObject.SetActive(true);
+            animator.SetTrigger(Land);
         }
     }
 
     private IEnumerator LateJump()
     {
         yield return jumpWait;
+        slimeBase.gameObject.SetActive(false);
         Launch();
     }
 

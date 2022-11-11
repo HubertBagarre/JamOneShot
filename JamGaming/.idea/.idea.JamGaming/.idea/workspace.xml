@@ -6,40 +6,32 @@
   <component name="ChangeListManager">
     <list default="true" id="5d04c205-4ed8-4660-85db-720dd1964556" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/Bounce.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/Bounce.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/Idle.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/Jump.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/Jump.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/Land.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/Land.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SlimeAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SlimeAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0001.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0001.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0002.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0002.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0003.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0003.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0004.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0004.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0005.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0005.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0006.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0006.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0007.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0007.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0008.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0008.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0009.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0009.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0010.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0010.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0011.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Base/landing_lay_0_0011.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0001.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0001.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0002.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0002.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0003.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0003.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0004.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0004.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0005.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0005.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0006.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0006.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0007.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0007.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0008.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0008.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0009.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0009.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0010.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0010.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0011.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Body/landing_lay_1_0011.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MapParts/SpawnPoint.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MapParts/SpawnPoint.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Slime.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Slime.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestEffects.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestEffects.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0001.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0002.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0003.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0003.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0004.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0004.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0005.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0005.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0006.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0006.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0007.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0007.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0008.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0008.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0009.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0009.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0010.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0010.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0011.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SpritesForAnimation/Landing/Face/landing_lay_2_0011.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/Game Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/Game Manager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 10.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 11.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 11.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 12.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 13.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 14.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 14.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 15.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 15.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 16.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 16.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 7.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 8.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Map 9.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1668157244964</updated>
       <workItem from="1668157259483" duration="7714000" />
-      <workItem from="1668179468870" duration="7511000" />
+      <workItem from="1668179468870" duration="8311000" />
     </task>
     <servers />
   </component>

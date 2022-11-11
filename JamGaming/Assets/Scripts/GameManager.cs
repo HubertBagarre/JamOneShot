@@ -228,6 +228,7 @@ public class GameManager : MonoBehaviour
         var player = players[playerIndex];
         player.isAlive = false;
         player.gameObject.SetActive(false);
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.CanMove(false);
         player.SetHatActive(false);
         CheckToEndRound();
