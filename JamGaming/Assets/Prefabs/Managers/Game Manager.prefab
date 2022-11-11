@@ -46,3 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maps:
   - {fileID: 6442741112278689747, guid: 8c5fbab2601a9b74a87ddb0d780b3c32, type: 3}
+  displayers: []
+  timeDisplayText: {fileID: 0}
+  maxRoundTime: 90
+  timeBeforeMove: 1
+  displayDuration: 1
+  targetScore: 3
+  scoreOverlayParent: {fileID: 0}
+  currentMap: {fileID: 0}
+  currentRound: 0
+  elapsedTime: 0
+  timeCanMove: 0

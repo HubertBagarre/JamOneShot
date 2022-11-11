@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
                 player.transform.position = currentMap.spawnPoints[i].position;
                 player.gameObject.SetActive(true);
                 player.isAlive = true;
+                player.SetHatActive(true);
                 player.CanLook(true);
             }
         }
@@ -128,17 +130,33 @@ public class GameManager : MonoBehaviour
         timeCanMove = false;
         scoreOverlayParent.SetActive(true);
         yield return waitScore;
-        scoreOverlayParent.SetActive(false);
+        if (!DidPlayerWin())
+        {
+            scoreOverlayParent.SetActive(false);
+            StartNewRound();
+        }
+        else
+        {
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
         foreach (var player in players)
         {
-            player.CanLook(true);
-            player.SetHatActive(true);
+            Destroy(player.gameObject);
         }
-        if(!DidPlayerWin()) StartNewRound();
+        players.Clear();
+        SceneManager.LoadScene(1);
     }
 
     private bool DidPlayerWin()
     {
+        foreach (var player in players)
+        {
+            if (player.score >= targetScore) return true;
+        }
         return false;
     }
 
