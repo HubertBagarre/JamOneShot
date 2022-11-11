@@ -12,6 +12,7 @@ public class PlayerInfo : MonoBehaviour
     public int score = 0;
     public bool isAlive = false;
     public bool isHatActive = false;
+    public bool canTeleport = true;
 
     [SerializeField] private Transform hatParent;
     private LobbyController lobbyController;

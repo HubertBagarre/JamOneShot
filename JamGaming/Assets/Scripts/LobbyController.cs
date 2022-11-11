@@ -13,6 +13,7 @@ public class LobbyController : MonoBehaviour
     private void Start()
     {
         infos = GetComponent<PlayerInfo>();
+        if(infos != null) Debug.Log("Found Info");
         lobbyManager = LobbyManager.instance;
         if(lobbyManager == null) return;
         lobbyManager.AddPlayer(infos);
