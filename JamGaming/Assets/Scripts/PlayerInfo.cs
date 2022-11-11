@@ -38,6 +38,11 @@ public class PlayerInfo : MonoBehaviour
         SetHatActive(false);
     }
 
+    public void ResetNormal()
+    {
+        inGameController.normalContact = transform.up;
+    }
+
     public void IncreaseScore()
     {
         if (isAlive) score++;

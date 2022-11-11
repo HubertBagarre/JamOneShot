@@ -12,6 +12,7 @@ public class EffectTriggerer : MonoBehaviour
     {
         if (col.gameObject.layer == 9)
         {
+            Debug.Log("Deflect !");
             controller.Deflect(col.GetComponent<EffectTriggerer>().controller.slimeRb.velocity.normalized);
         }
         else

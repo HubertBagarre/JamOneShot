@@ -52,7 +52,12 @@ public class GameManager : MonoBehaviour
         waitMove = new WaitForSeconds(timeBeforeMove);
         foreach (var map in maps)
         {
-            var mapObj = Instantiate(map, Vector3.zero, Quaternion.identity).gameObject;
+            var spawned = Instantiate(map, Vector3.zero, Quaternion.identity);
+            foreach (var spawnPoint in spawned.spawnPoints)
+            {
+                spawnPoint.gameObject.SetActive(false);
+            }
+            var mapObj = spawned.gameObject;
             mapObj.SetActive(false);
             spawnedMaps.Add(mapObj);
         }
@@ -69,7 +74,12 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < displayers.Count; i++)
         {
-            displayers[i].Activate(i < players.Count,i);
+            displayers[i].Activate(false,i,Color.white);
+            if (i < players.Count)
+            {
+                displayers[i].Activate(true,i,players[i].currentColor);
+            }
+            
         }
     }
 
@@ -111,6 +121,7 @@ public class GameManager : MonoBehaviour
                 var transform1 = player.transform;
                 transform1.position = currentMap.spawnPoints[i].position;
                 transform1.localRotation = currentMap.spawnPoints[i].localRotation;
+                player.ResetNormal();
                 player.gameObject.SetActive(true);
                 player.isAlive = true;
                 player.SetHatActive(true);
@@ -222,6 +233,7 @@ public class GameManager : MonoBehaviour
         var player = players[playerIndex];
         player.isAlive = false;
         player.gameObject.SetActive(false);
+        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.CanMove(false);
         player.SetHatActive(false);
         CheckToEndRound();
