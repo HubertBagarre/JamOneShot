@@ -45,8 +45,7 @@ public class SlimeController : MonoBehaviour
 
     public void Collision(Collision2D col)
     {
-        _normalContact =(Vector2)transform.position-col.GetContact(0).point;
-        _normalContact.Normalize();
+        _normalContact =col.GetContact(0).normal;
         if (_remainingRebound > 0)
         {
             _remainingRebound--;
