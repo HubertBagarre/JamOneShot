@@ -12,22 +12,22 @@ public class LobbyManager : MonoBehaviour
 
     public static LobbyManager instance;
 
-    public List<LobbyController> players = new List<LobbyController>();
+    public List<PlayerInfo> players = new ();
 
     public void Awake()
     {
         instance = this;
     }
 
-    public void AddPlayer(LobbyController lc)
+    public void AddPlayer(PlayerInfo lc)
     {
         lc.playerIndex = players.Count;
-        slots[lc.playerIndex].lobbyController = lc;
+        slots[lc.playerIndex].playerInfo = lc;
         slots[lc.playerIndex].UpdatePlayerReady();
         players.Add(lc);
     }
 
-    public void RemovePlayer(LobbyController lc)
+    public void RemovePlayer(PlayerInfo lc)
     {
         if (!players.Contains(lc)) return;
         players.Remove(lc);

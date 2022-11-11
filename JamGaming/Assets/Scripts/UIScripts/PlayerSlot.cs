@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerSlot : MonoBehaviour
 {
-    public LobbyController lobbyController;
+    public PlayerInfo playerInfo;
     [SerializeField] private Image modelImage;
     [SerializeField] private TextMeshProUGUI playerNameText;
     [SerializeField] private GameObject readyPanel;
@@ -19,7 +19,7 @@ public class PlayerSlot : MonoBehaviour
 
     public void UpdatePlayerReady()
     {
-        playerNameText.text = $"Player {lobbyController.playerIndex}";
+        playerNameText.text = $"Player {playerInfo.playerIndex}";
     }
 
     public void UpdateColor(Color color)
@@ -29,6 +29,6 @@ public class PlayerSlot : MonoBehaviour
 
     public void UpdateReady()
     {
-        readyPanel.SetActive(lobbyController.isReady);
+        readyPanel.SetActive(playerInfo.isReady);
     }
 }
