@@ -352,7 +352,6 @@ GameObject:
   - component: {fileID: 1310475750415144175}
   - component: {fileID: 4813585092822271021}
   - component: {fileID: 4813585092822271020}
-  - component: {fileID: 4813585092822271023}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Untagged
@@ -442,7 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0008c7ecb974bbb4ebfb3dfa9c793a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeRb: {fileID: 4813585092822271016}
   inputAxis: {x: 0, y: 0}
   slimeBody: {fileID: 4813585092992409778}
   slimeBase: {fileID: 306015949}
@@ -450,6 +448,7 @@ MonoBehaviour:
   speed: 10
   accelFactor: 0.01
   launchStrength: 10
+  slimeRb: {fileID: 4813585092822271016}
   onWall: 0
   canLook: 0
   canJump: 0
@@ -600,22 +599,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!58 &4813585092822271023
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4813585092822271017}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &4813585092992409779
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4813585092992409778}
   - component: {fileID: 4813585092992409781}
+  - component: {fileID: 5509321954425659253}
   m_Layer: 7
   m_Name: SlimeBody
   m_TagString: Untagged
@@ -702,3 +686,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &5509321954425659253
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813585092992409779}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.125}
+  serializedVersion: 2
+  m_Radius: 0.3

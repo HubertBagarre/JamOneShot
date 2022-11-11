@@ -574,6 +574,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1737576986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4813585092822271021, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+  m_PrefabInstance: {fileID: 4813585092423695865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0008c7ecb974bbb4ebfb3dfa9c793a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1836583174
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +735,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1310475750415144175, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4813585092822271017, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -772,10 +787,52 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4813585092822271021, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+      propertyPath: canJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813585092822271021, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+      propertyPath: canLook
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813585092822271021, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813585092992409781, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813585092992409781, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6479619590191975848, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
       propertyPath: hatParent
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6479619590191975848, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+--- !u!1 &4813585092423695866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4813585092992409779, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
+  m_PrefabInstance: {fileID: 4813585092423695865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4813585092423695871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813585092423695866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210fa56c9c562484b9e75bbba741cf9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slimeController: {fileID: 1737576986}

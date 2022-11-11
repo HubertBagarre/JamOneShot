@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class SlimeController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D slimeRb;
     [SerializeField] private Vector2 inputAxis;
     [SerializeField] private Transform slimeBody;
     [SerializeField] private Transform slimeBase;
@@ -24,8 +23,8 @@ public class SlimeController : MonoBehaviour
     private bool _split;
     private int _remainingRebound;
     private int _maxRebound;
-    private GameObject _lastCol;
 
+    public Rigidbody2D slimeRb;
     public bool onWall;
     public bool canLook;
     public bool canJump;
@@ -44,10 +43,8 @@ public class SlimeController : MonoBehaviour
         slimeBody.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,inputAxis));
     }
 
-    private void OnCollisionStay2D(Collision2D col)
+    public void Collision(Collision2D col)
     {
-        if (col.gameObject == _lastCol) return;
-        _lastCol = col.gameObject;
         _normalContact =(Vector2)transform.position-col.GetContact(0).point;
         _normalContact.Normalize();
         if (_remainingRebound > 0)
