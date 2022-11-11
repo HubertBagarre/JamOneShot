@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0303f14cd1cd19c499cd00fd9667d6f7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &878961116
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: f62ae996266edff42afed19af7299512, type: 3}
+  m_Sprite: {fileID: 21300000, guid: daad4b3d5e83de54fb44c57ec7398e33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 1310475750415144175}
   - component: {fileID: 4813585092822271021}
   - component: {fileID: 4813585092822271020}
+  - component: {fileID: 4532922604731930312}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Untagged
@@ -284,6 +285,7 @@ MonoBehaviour:
   accelFactor: 0.01
   launchStrength: 10
   jumpTimerAtLanding: 0.3
+  animator: {fileID: 4532922604731930312}
   _remainingRebound: 0
   _maxRebound: 0
   _timer: 0
@@ -438,6 +440,26 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &4532922604731930312
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813585092822271017}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 19b63f00f8f89a5439a16f0a6c53d2ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4813585092992409779
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +537,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d085cca7ed1d4f642831486125b6d89a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56d6fb0f9da08c240a9d5180e521a2b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
