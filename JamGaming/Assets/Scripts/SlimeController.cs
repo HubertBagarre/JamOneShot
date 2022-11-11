@@ -41,6 +41,7 @@ public class SlimeController : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
+        UpdateAxis();
         UpdateBodyRotation();
     }
 
@@ -49,6 +50,14 @@ public class SlimeController : MonoBehaviour
         if (!canLook) return;
         if (travelling) return;
         slimeBody.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, inputAxis));
+    }
+
+    private void UpdateAxis()
+    {
+        if (_normalContact == Vector2.zero) return;
+        if (inputAxis.magnitude < 0.3) inputAxis = _normalContact;
+        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = _lastAllowedDirection;
+        else _lastAllowedDirection = inputAxis;
     }
 
     public void Collision(Collision2D col)
@@ -89,10 +98,6 @@ public class SlimeController : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext ctx)
     {
         inputAxis = ctx.ReadValue<Vector2>();
-        if (_normalContact == Vector2.zero) return;
-
-        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = _lastAllowedDirection;
-        else _lastAllowedDirection = inputAxis;
     }
 
     public void NoRebound(InputAction.CallbackContext ctx)
