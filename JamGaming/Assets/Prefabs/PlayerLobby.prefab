@@ -176,7 +176,11 @@ MonoBehaviour:
   score: 0
   isAlive: 0
   isHatActive: 0
+  canTeleport: 1
   hatParent: {fileID: 5717640399986695136}
+  coloredSprites:
+  - {fileID: 5607206886325785350}
+  - {fileID: 5382053225408171824}
 --- !u!114 &4433941810446120634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0008c7ecb974bbb4ebfb3dfa9c793a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeRb: {fileID: 6605470020350853240}
   inputAxis: {x: 0, y: 0}
   slimeBody: {fileID: 2013020533481570285}
   slimeBase: {fileID: 8653723888552819721}
@@ -210,6 +213,7 @@ MonoBehaviour:
   speed: 0
   accelFactor: 0
   launchStrength: 10
+  slimeRb: {fileID: 6605470020350853240}
   onWall: 0
   canLook: 0
   canJump: 0
