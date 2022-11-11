@@ -1,13 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Config"),SerializeField] private List<Map> maps = new ();
+    [SerializeField] private List<ScoreDisplayer> displayers = new List<ScoreDisplayer>();
     [SerializeField] private TextMeshProUGUI timeDisplayText;
     [SerializeField] private float maxRoundTime = 90f;
     [SerializeField] private float timeBeforeMove = 3f;
@@ -46,9 +46,20 @@ public class GameManager : MonoBehaviour
         currentRound = -1;
         waitScore = new WaitForSeconds(displayDuration);
         waitMove = new WaitForSeconds(timeBeforeMove);
-        foreach (var player in players)
+        ActivateDisplayers();
+        for (var index = 0; index < players.Count; index++)
         {
+            var player = players[index];
+            player.displayer = displayers[index];
             player.SetupForGame();
+        }
+    }
+
+    private void ActivateDisplayers()
+    {
+        for (int i = 0; i < displayers.Count; i++)
+        {
+            displayers[i].Activate(i < players.Count,i);
         }
     }
 
@@ -90,6 +101,7 @@ public class GameManager : MonoBehaviour
                 player.transform.position = currentMap.spawnPoints[i].position;
                 player.gameObject.SetActive(true);
                 player.isAlive = true;
+                player.SetHatActive(true);
                 player.CanLook(true);
             }
         }
@@ -118,17 +130,33 @@ public class GameManager : MonoBehaviour
         timeCanMove = false;
         scoreOverlayParent.SetActive(true);
         yield return waitScore;
-        scoreOverlayParent.SetActive(false);
+        if (!DidPlayerWin())
+        {
+            scoreOverlayParent.SetActive(false);
+            StartNewRound();
+        }
+        else
+        {
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
         foreach (var player in players)
         {
-            player.CanLook(true);
-            player.SetHatActive(true);
+            Destroy(player.gameObject);
         }
-        if(!DidPlayerWin()) StartNewRound();
+        players.Clear();
+        SceneManager.LoadScene(1);
     }
 
     private bool DidPlayerWin()
     {
+        foreach (var player in players)
+        {
+            if (player.score >= targetScore) return true;
+        }
         return false;
     }
 
