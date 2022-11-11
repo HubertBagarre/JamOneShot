@@ -19,7 +19,7 @@ public class SlimeController : MonoBehaviour
 
     public PlayerInfo infos;
 
-    private Vector2 _normalContact;
+    public Vector2 normalContact;
     private Vector2 _launchDirection;
     private Vector2 _lastAllowedDirection;
     private bool _split;
@@ -32,6 +32,8 @@ public class SlimeController : MonoBehaviour
     public bool canLook;
     public bool canJump;
     public bool travelling;
+
+    private WaitForSeconds jumpWait;
     private static readonly int Jump = Animator.StringToHash("Jump");
     private static readonly int Bounce = Animator.StringToHash("Bounce");
     private static readonly int Land = Animator.StringToHash("Land");
@@ -41,6 +43,7 @@ public class SlimeController : MonoBehaviour
         onWall = true;
         infos = GetComponent<PlayerInfo>();
         animator = GetComponent<Animator>();
+        jumpWait = new WaitForSeconds(0.1f);
     }
 
     private void Update()
@@ -59,34 +62,41 @@ public class SlimeController : MonoBehaviour
 
     private void UpdateAxis()
     {
-        if (_normalContact == Vector2.zero) return;
-        if (inputAxis.magnitude < 0.3) inputAxis = _normalContact;
-        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = _lastAllowedDirection;
+        if (normalContact == Vector2.zero) return;
+        if (inputAxis.magnitude < 0.3) inputAxis = normalContact;
+        if (Vector3.Dot(inputAxis, normalContact) < borneArrow) inputAxis = _lastAllowedDirection;
         else _lastAllowedDirection = inputAxis;
     }
 
     public void Collision(Collision2D col)
     {
-        _normalContact = col.GetContact(0).normal;
+        normalContact = col.GetContact(0).normal;
         if (_remainingRebound > 0)
         {
             _remainingRebound--;
-            _launchDirection = Vector2.Reflect(_launchDirection, _normalContact);
-            slimeRb.velocity = _launchDirection.normalized * speed * (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
+            _launchDirection = Vector2.Reflect(_launchDirection, normalContact);
+            slimeRb.velocity = _launchDirection.normalized * speed *
+                               (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
             animator.SetTrigger(Bounce);
             Launch();
         }
         else
         {
             travelling = false;
-            _lastAllowedDirection = _normalContact;
-            transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _normalContact));
+            _lastAllowedDirection = normalContact;
+            transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, normalContact));
             slimeRb.velocity = Vector2.zero;
             slimeRb.bodyType = RigidbodyType2D.Kinematic;
             _timer = 0;
             onWall = true;
-            animator.SetTrigger(Land);
+            //animator.SetTrigger(Land);
         }
+    }
+
+    private IEnumerator LateJump()
+    {
+        yield return jumpWait;
+        Launch();
     }
 
     private void Launch()
@@ -99,7 +109,7 @@ public class SlimeController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _launchDirection));
         slimeBody.localRotation = Quaternion.Euler(0, 0, 0);
         slimeRb.AddForce(_launchDirection * launchStrength, ForceMode2D.Impulse);
-        _normalContact = Vector2.zero;
+        normalContact = Vector2.zero;
     }
 
     public void Deflect(Vector2 otherDirection)
@@ -121,7 +131,7 @@ public class SlimeController : MonoBehaviour
         if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
         animator.SetTrigger(Jump);
-        Launch();
+        StartCoroutine(LateJump());
     }
 
     public void OneRebound(InputAction.CallbackContext ctx)
@@ -131,7 +141,7 @@ public class SlimeController : MonoBehaviour
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 1;
         _maxRebound = _remainingRebound;
-        Launch();
+        StartCoroutine(LateJump());
     }
 
     public void TwoRebound(InputAction.CallbackContext ctx)
@@ -141,7 +151,7 @@ public class SlimeController : MonoBehaviour
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 2;
         _maxRebound = _remainingRebound;
-        Launch();
+        StartCoroutine(LateJump());
     }
 
     public void ThreeRebound(InputAction.CallbackContext ctx)
@@ -151,6 +161,6 @@ public class SlimeController : MonoBehaviour
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 3;
         _maxRebound = _remainingRebound;
-        Launch();
+        StartCoroutine(LateJump());
     }
 }
