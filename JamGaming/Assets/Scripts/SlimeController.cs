@@ -112,6 +112,14 @@ public class SlimeController : MonoBehaviour
         normalContact = Vector2.zero;
     }
 
+    public void Deflect(Vector2 otherDirection)
+    {
+        canJump = true;
+        slimeRb.velocity = Vector2.zero;
+        _launchDirection = otherDirection;
+        Launch();
+    }
+
     public void OnMoveInput(InputAction.CallbackContext ctx)
     {
         inputAxis = ctx.ReadValue<Vector2>();
