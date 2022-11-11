@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d04c205-4ed8-4660-85db-720dd1964556" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SlimeAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graph/Animation/Slime/SlimeAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIScripts/ScoreDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIScripts/ScoreDisplayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-    </list>
+    <list default="true" id="5d04c205-4ed8-4660-85db-720dd1964556" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../MetS2/MobileGaming/Assets/Scripts/Sound/SoundManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LobbyManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eba5c5b2c6de4af992b2cc99354e483e15d400/43/3df9ac8e/Time.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -68,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1668157244964</updated>
       <workItem from="1668157259483" duration="7714000" />
-      <workItem from="1668179468870" duration="8924000" />
+      <workItem from="1668179468870" duration="9576000" />
     </task>
     <servers />
   </component>

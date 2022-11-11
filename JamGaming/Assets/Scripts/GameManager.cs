@@ -74,7 +74,12 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < displayers.Count; i++)
         {
-            displayers[i].Activate(i < players.Count,i,players[i].currentColor);
+            displayers[i].Activate(false,i,Color.white);
+            if (i < players.Count)
+            {
+                displayers[i].Activate(true,i,players[i].currentColor);
+            }
+            
         }
     }
 
