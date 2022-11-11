@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource musicSource;
-    public AudioSource musicSourceSecond;
-    public AudioSource effectSource;
-    public AudioSource effectSourceSecond;
+    [SerializeField] private List<AudioClip> musicClips = new List<AudioClip>();
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private List<AudioClip> soundClips = new List<AudioClip>();
+    private Dictionary<PlayerInfo, List<AudioSource>> sources = new Dictionary<PlayerInfo, List<AudioSource>>();
 
-    public static SoundManager Instance = null;
-
-    public AudioClip MusicTransition;
+    public static SoundManager instance = null;
 
     private void Awake()
     {
-        if(Instance == null)
+        if(instance == null)
         {
-            Instance = this;
+            instance = this;
         }
-        else if(Instance != this)
+        else if(instance != this)
         {
             Destroy(gameObject);
         }
@@ -27,32 +25,37 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void PlayMusic(AudioClip clip, AudioClip clipSecond)
+    public void PlayMusic(int index)
     {
-        musicSource.clip = clip;
+        musicSource.clip = musicClips[index];
         musicSource.Play();
-        musicSourceSecond.clip = clipSecond;
     }
 
-    public void PlaySound(AudioClip clip)
-    {
-        if (!effectSource.isPlaying)
-        {
-            effectSource.clip = clip;
-            effectSource.Play();
-        }
-        else
-        {
-            effectSourceSecond.clip = clip;
-            effectSourceSecond.Play();
-        }
-    }
-
-    public IEnumerator ChangeMusic()
+    public void StopMusic()
     {
         musicSource.Stop();
-        PlaySound(MusicTransition);
-        yield return new WaitForSeconds(3);
-        musicSourceSecond.Play();
+    }
+
+    public void CreateSources(PlayerInfo player)
+    {
+        var audioSources = new List<AudioSource>();
+        foreach (var clip in soundClips)
+        {
+            var source = gameObject.AddComponent<AudioSource>();
+            source.clip = clip;
+            audioSources.Add(source);
+        }
+        sources.Add(player,audioSources);
+    }
+
+    public void ClearSources()
+    {
+        sources.Clear();
+    }
+
+    public void PlaySound(PlayerInfo player, int index)
+    {
+        if(!sources.ContainsKey(player)) return;
+        sources[player][index].Play();
     }
 }

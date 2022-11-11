@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float elapsedTime;
     [SerializeField] private bool timeCanMove = false;
 
+    private SoundManager sm;
+    
     public static GameManager instance;
 
     private void Awake()
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        sm = SoundManager.instance;
         SetupGame();
         DisplayScore();
     }
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
     private void SetupGame()
     {
         Debug.Log($"Setting up  game with {players.Count} players");
+        sm.PlayMusic(0);
         playedMaps.Clear();
         currentRound = -1;
         waitScore = new WaitForSeconds(displayDuration);
@@ -62,11 +66,13 @@ public class GameManager : MonoBehaviour
             spawnedMaps.Add(mapObj);
         }
         ActivateDisplayers();
+        sm.ClearSources();
         for (var index = 0; index < players.Count; index++)
         {
             var player = players[index];
             player.displayer = displayers[index];
             player.SetupForGame();
+            sm.CreateSources(player);
         }
     }
 
@@ -171,6 +177,7 @@ public class GameManager : MonoBehaviour
             Destroy(player.gameObject);
         }
         players.Clear();
+        sm.StopMusic();
         SceneManager.LoadScene(1);
     }
 
