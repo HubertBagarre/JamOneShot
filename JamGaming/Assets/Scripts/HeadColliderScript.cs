@@ -8,6 +8,11 @@ public class HeadColliderScript : MonoBehaviour
     [SerializeField] private SlimeController slimeController;
     
     private GameObject _lastCol;
+    
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        col.GetComponent<IEffect>()?.OnTrigger(slimeController);
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {

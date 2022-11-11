@@ -41,6 +41,7 @@ public class SlimeController : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
+        UpdateAxis();
         UpdateBodyRotation();
     }
 
@@ -51,6 +52,14 @@ public class SlimeController : MonoBehaviour
         slimeBody.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, inputAxis));
     }
 
+    private void UpdateAxis()
+    {
+        if (_normalContact == Vector2.zero) return;
+        if (inputAxis.magnitude < 0.3) inputAxis = _normalContact;
+        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = _lastAllowedDirection;
+        else _lastAllowedDirection = inputAxis;
+    }
+
     public void Collision(Collision2D col)
     {
         _normalContact = col.GetContact(0).normal;
@@ -58,8 +67,7 @@ public class SlimeController : MonoBehaviour
         {
             _remainingRebound--;
             _launchDirection = Vector2.Reflect(_launchDirection, _normalContact);
-            slimeRb.velocity = _launchDirection.normalized * speed *
-                               (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
+            slimeRb.velocity = _launchDirection.normalized * speed * (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
             Launch();
         }
         else
@@ -68,6 +76,7 @@ public class SlimeController : MonoBehaviour
             _lastAllowedDirection = _normalContact;
             transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _normalContact));
             slimeRb.velocity = Vector2.zero;
+            slimeRb.bodyType = RigidbodyType2D.Kinematic;
             _timer = 0;
             onWall = true;
         }
@@ -79,6 +88,7 @@ public class SlimeController : MonoBehaviour
         if (_timer < jumpTimerAtLanding) return;
         onWall = false;
         travelling = true;
+        slimeRb.bodyType = RigidbodyType2D.Dynamic;
         transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _launchDirection));
         slimeBody.localRotation = Quaternion.Euler(0, 0, 0);
         slimeRb.AddForce(_launchDirection * launchStrength, ForceMode2D.Impulse);
@@ -88,10 +98,6 @@ public class SlimeController : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext ctx)
     {
         inputAxis = ctx.ReadValue<Vector2>();
-        if (_normalContact == Vector2.zero) return;
-
-        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = _lastAllowedDirection;
-        else _lastAllowedDirection = inputAxis;
     }
 
     public void NoRebound(InputAction.CallbackContext ctx)
@@ -130,10 +136,5 @@ public class SlimeController : MonoBehaviour
         _remainingRebound = 3;
         _maxRebound = _remainingRebound;
         Launch();
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        col.GetComponent<IEffect>()?.OnTrigger(this);
     }
 }
