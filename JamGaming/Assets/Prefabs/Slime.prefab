@@ -28,7 +28,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4813585092992409778}
   m_Father: {fileID: 4813585092822271018}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -200,10 +201,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4813585092992409778}
   - {fileID: 306015949}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4813585092822271016
 Rigidbody2D:
@@ -240,16 +240,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slimeRb: {fileID: 4813585092822271016}
   inputAxis: {x: 0, y: 0}
-  arrow: {fileID: 0}
   slimeBody: {fileID: 4813585092992409778}
-  _onWall: 1
+  slimeBase: {fileID: 0}
   borneArrow: 0.1
-  stretchAmount: 2
   speed: 10
   accelFactor: 0.01
   launchStrength: 10
+  onWall: 0
   canLook: 1
   canJump: 1
+  travelling: 0
 --- !u!114 &4813585092822271020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,13 +400,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4813585092992409779}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 878961117}
-  m_Father: {fileID: 4813585092822271018}
+  m_Father: {fileID: 306015949}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4813585092992409781

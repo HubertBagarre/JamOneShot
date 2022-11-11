@@ -10,8 +10,8 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private Rigidbody2D slimeRb;
     [SerializeField] private Vector2 inputAxis;
     [SerializeField] private Transform slimeBody;
+    [SerializeField] private Transform slimeBase;
     [SerializeField] private float borneArrow;
-    [SerializeField] private float stretchAmount;
     [SerializeField] private float speed;
     [SerializeField] private float accelFactor;
     [SerializeField] private float launchStrength;
@@ -27,6 +27,7 @@ public class SlimeController : MonoBehaviour
     public bool onWall;
     public bool canLook;
     public bool canJump;
+    public bool travelling;
     
     private void Start()
     {
@@ -37,8 +38,8 @@ public class SlimeController : MonoBehaviour
     private void FixedUpdate()
     {
         if (!canLook) return;
+        if (travelling) return;
         slimeBody.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,inputAxis));
-        slimeBody.localScale = new Vector3(1, 1, 1);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -55,6 +56,8 @@ public class SlimeController : MonoBehaviour
         else
         {
             onWall = true;
+            travelling = false;
+            slimeBase.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_normalContact));
             slimeRb.velocity = Vector2.zero;
         }
     }
@@ -62,6 +65,8 @@ public class SlimeController : MonoBehaviour
     private void Launch()
     {
         if(!canJump) return;
+        travelling = true;
+        slimeBody.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_launchDirection));
         slimeRb.AddForce(_launchDirection*launchStrength,ForceMode2D.Impulse);
         _normalContact = Vector2.zero;
         onWall = false;
