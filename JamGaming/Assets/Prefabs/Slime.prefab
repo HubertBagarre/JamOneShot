@@ -241,8 +241,8 @@ MonoBehaviour:
   slimeRb: {fileID: 4813585092822271016}
   inputAxis: {x: 0, y: 0}
   slimeBody: {fileID: 4813585092992409778}
-  slimeBase: {fileID: 0}
-  borneArrow: 0.1
+  slimeBase: {fileID: 306015949}
+  borneArrow: 0.025
   speed: 10
   accelFactor: 0.01
   launchStrength: 10
