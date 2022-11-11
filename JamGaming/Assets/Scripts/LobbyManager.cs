@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class LobbyManager : MonoBehaviour
@@ -68,6 +69,16 @@ public class LobbyManager : MonoBehaviour
         {
             if (!player.isReady) canStart = false;
         }
-        if(canStart) Debug.Log("Starting");
+        if(canStart) StartGame();
+    }
+
+    private void StartGame()
+    {
+        GameManager.players = players;
+        foreach (var player in players)
+        {
+            DontDestroyOnLoad(player.gameObject);
+        }
+        SceneManager.LoadScene(3);
     }
 }
