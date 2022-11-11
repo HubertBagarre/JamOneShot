@@ -15,6 +15,7 @@ public class SlimeController : MonoBehaviour
     private bool _onWall;
     private Vector2 _normalContact;
     private bool _split;
+    private int _remainingRebound;
 
     private void Start()
     {
@@ -49,5 +50,26 @@ public class SlimeController : MonoBehaviour
     {
         inputAxis = ctx.ReadValue<Vector2>();
         if (Vector3.Dot(inputAxis, _normalContact) < 0) inputAxis = new Vector2(0, 0);
+    }
+
+    public void OneRebound(InputAction.CallbackContext ctx)
+    {
+        if (!_onWall) return;
+        _remainingRebound = 1;
+        Launch(ctx);
+    }
+    
+    public void TwoRebound(InputAction.CallbackContext ctx)
+    {
+        if (!_onWall) return;
+        _remainingRebound = 2;
+        Launch(ctx);
+    }
+    
+    public void ThreeRebound(InputAction.CallbackContext ctx)
+    {
+        if (!_onWall) return;
+        _remainingRebound = 3;
+        Launch(ctx);
     }
 }
