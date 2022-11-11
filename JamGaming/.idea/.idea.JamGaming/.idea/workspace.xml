@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5d04c205-4ed8-4660-85db-720dd1964556" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerLobby.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerLobby.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LobbyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LobbyController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LobbyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LobbyManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIScripts/PlayerSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIScripts/PlayerSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test Player.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test Player.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SlimeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SlimeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +19,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LobbyManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="TaskManager">
     <servers />
   </component>

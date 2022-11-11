@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,12 +12,13 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private float launchStrength;
     [SerializeField] private Transform arrow;
 
-    private bool onWall;
-    private Vector2 normalContact;
+    private bool _onWall;
+    private Vector2 _normalContact;
+    private bool _split;
 
     private void Start()
     {
-        onWall = true;
+        _onWall = true;
     }
 
     private void FixedUpdate()
@@ -29,21 +31,23 @@ public class SlimeController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         slimeRb.gravityScale = 0;
-        normalContact = col.GetContact(0).normal;
-        onWall = true;
+        _normalContact =(Vector2)transform.position-col.GetContact(0).point;
+        _normalContact.Normalize();
+        _onWall = true;
         slimeRb.velocity = Vector2.zero;
     }
 
     public void Launch(InputAction.CallbackContext ctx)
     {
-        if (!onWall) return;
+        if (!_onWall) return;
         slimeRb.AddForce(inputAxis.normalized*launchStrength,ForceMode2D.Impulse);
-        normalContact = Vector2.zero;
-        onWall = false;
+        _normalContact = Vector2.zero;
+        _onWall = false;
     }
 
     public void OnMoveInput(InputAction.CallbackContext ctx)
     {
         inputAxis = ctx.ReadValue<Vector2>();
+        if (Vector3.Dot(inputAxis, _normalContact) < 0) inputAxis = new Vector2(0, 0);
     }
 }
