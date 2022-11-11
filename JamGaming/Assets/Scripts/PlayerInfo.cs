@@ -45,12 +45,14 @@ public class PlayerInfo : MonoBehaviour
     public void CanLook(bool value)
     {
         inGameController.canLook = value;
+        inGameController.travelling = !value;
     }
     
     public void CanMove(bool value)
     {
         inGameController.canJump = value;
         inGameController.onWall = value;
+        inGameController.travelling = !value;
     }
 
     public void SetHatActive(bool value)
