@@ -8,15 +8,17 @@ public class PlayerInfo : MonoBehaviour
     public bool isReady = false;
     public Color currentColor;
     public ScoreDisplayer displayer;
-    
+
     public int score = 0;
     public bool isAlive = false;
     public bool isHatActive = false;
+    public bool canTeleport = true;
 
     [SerializeField] private Transform hatParent;
     private LobbyController lobbyController;
     private SlimeController inGameController;
-    
+    [SerializeField] private List<SpriteRenderer> coloredSprites = new List<SpriteRenderer>();
+
     private void Start()
     {
         lobbyController = GetComponent<LobbyController>();
@@ -47,7 +49,7 @@ public class PlayerInfo : MonoBehaviour
         inGameController.canLook = value;
         inGameController.travelling = !value;
     }
-    
+
     public void CanMove(bool value)
     {
         inGameController.canJump = value;
@@ -59,5 +61,14 @@ public class PlayerInfo : MonoBehaviour
     {
         isHatActive = value;
         hatParent.gameObject.SetActive(isHatActive);
+    }
+
+    public void ChangeColor(Color color)
+    {
+        currentColor = color;
+        foreach (var spriteRenderer in coloredSprites)
+        {
+            spriteRenderer.color = currentColor;
+        }
     }
 }
