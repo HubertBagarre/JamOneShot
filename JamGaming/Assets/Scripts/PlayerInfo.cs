@@ -25,7 +25,12 @@ public class PlayerInfo : MonoBehaviour
         score = 0;
         lobbyController.isInLobby = false;
         inGameController.enabled = false;
-        isAlive = true;
+        isAlive = false;
+    }
+
+    public void IncreaseScore()
+    {
+        if (isAlive) score++;
     }
     
 }

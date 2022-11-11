@@ -6,6 +6,6 @@ public class KillZone : MonoBehaviour, IEffect
 {
     public void OnTrigger(SlimeController slimeController)
     {
-        //GameManager.instance.EliminatePlayer(slimeController.infos.playerIndex);
+        GameManager.instance.EliminatePlayer(slimeController.GetComponent<PlayerInfo>().playerIndex);
     }
 }
