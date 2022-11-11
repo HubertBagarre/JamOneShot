@@ -17,7 +17,7 @@ public class LobbyController : MonoBehaviour
         lobbyManager = LobbyManager.instance;
         if(lobbyManager == null) return;
         lobbyManager.AddPlayer(infos);
-        infos.currentColor = lobbyManager.GetNewColor(infos.playerIndex);
+        infos.ChangeColor(lobbyManager.GetNewColor(infos.playerIndex));
     }
 
     public void NextColor(InputAction.CallbackContext ctx)
@@ -25,7 +25,7 @@ public class LobbyController : MonoBehaviour
         if(!isInLobby) return;
         if(!ctx.started) return;
         if(infos.isReady) return;
-        infos.currentColor = lobbyManager.ChangeColor(infos.currentColor, true,infos.playerIndex);
+        infos.ChangeColor(lobbyManager.ChangeColor(infos.currentColor, true,infos.playerIndex));
     }
 
     public void PreviousColor(InputAction.CallbackContext ctx)
@@ -33,7 +33,7 @@ public class LobbyController : MonoBehaviour
         if(!isInLobby) return;
         if(!ctx.started) return;
         if(infos.isReady) return;
-        infos.currentColor = lobbyManager.ChangeColor(infos.currentColor, false,infos.playerIndex);
+        infos.ChangeColor(lobbyManager.ChangeColor(infos.currentColor, false,infos.playerIndex));
     }
 
     public void ToggleReady(InputAction.CallbackContext ctx)
