@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4433941810446120634
 MonoBehaviour:
@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e8e6961cd3c1c54482c16b0ed0bc926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInLobby: 1
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+  playerIndex: -1
+  isReady: 0
 --- !u!114 &4433941810446120633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +82,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4433941810446120634}
         m_TargetAssemblyTypeName: LobbyController, Assembly-CSharp
-        m_MethodName: OnInputPressed
+        m_MethodName: ToggleReady
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -94,7 +98,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4433941810446120634}
         m_TargetAssemblyTypeName: LobbyController, Assembly-CSharp
-        m_MethodName: OnInputPressed
+        m_MethodName: PreviousColor
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -107,26 +111,14 @@ MonoBehaviour:
     m_ActionId: ca920a47-bbbd-4b13-887b-973dec171bb0
     m_ActionName: Player/Jump1[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4433941810446120634}
-        m_TargetAssemblyTypeName: LobbyController, Assembly-CSharp
-        m_MethodName: OnInputPressed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 62063fc9-0e31-4453-9188-a85d2b16536e
     m_ActionName: Player/Jump2[/XInputControllerWindows/buttonNorth,/XInputControllerWindows1/buttonNorth]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4433941810446120634}
         m_TargetAssemblyTypeName: LobbyController, Assembly-CSharp
-        m_MethodName: OnInputPressed
+        m_MethodName: NextColor
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

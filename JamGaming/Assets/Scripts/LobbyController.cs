@@ -6,18 +6,41 @@ using UnityEngine.InputSystem;
 
 public class LobbyController : MonoBehaviour
 {
-    public int score = 0;
+    public bool isInLobby = true;
+    public Color currentColor;
+    private LobbyManager lobbyManager;
+    public int playerIndex = -1;
+    public bool isReady = false;
 
     private void Start()
     {
-        JoinLobby.instance.AddPlayer(this);
+        lobbyManager = LobbyManager.instance;
+        if(lobbyManager == null) return;
+        lobbyManager.AddPlayer(this);
+        currentColor = lobbyManager.GetNewColor(playerIndex);
     }
 
-    public void OnInputPressed(InputAction.CallbackContext ctx)
+    public void NextColor(InputAction.CallbackContext ctx)
     {
+        if(!isInLobby) return;
         if(!ctx.started) return;
-        Debug.Log($"{ctx} DID SOMETHING");
-        
-        score++;
+        if(isReady) return;
+        currentColor = lobbyManager.ChangeColor(currentColor, true,playerIndex);
+    }
+
+    public void PreviousColor(InputAction.CallbackContext ctx)
+    {
+        if(!isInLobby) return;
+        if(!ctx.started) return;
+        if(isReady) return;
+        currentColor = lobbyManager.ChangeColor(currentColor, false,playerIndex);
+    }
+
+    public void ToggleReady(InputAction.CallbackContext ctx)
+    {
+        if(!isInLobby) return;
+        if(!ctx.started) return;
+        isReady = !isReady;
+        lobbyManager.SetReady(playerIndex);
     }
 }
