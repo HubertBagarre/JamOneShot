@@ -418,7 +418,9 @@ MonoBehaviour:
   isHatActive: 0
   canTeleport: 1
   hatParent: {fileID: 8684331866169501435}
-  coloredSprites: []
+  coloredSprites:
+  - {fileID: 306015950}
+  - {fileID: 4813585092992409781}
 --- !u!114 &1310475750415144175
 MonoBehaviour:
   m_ObjectHideFlags: 0

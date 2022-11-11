@@ -102,7 +102,9 @@ public class GameManager : MonoBehaviour
             var player = players[i];
             if (i >= 0 || i < currentMap.spawnPoints.Count)
             {
-                player.transform.position = currentMap.spawnPoints[i].position;
+                var transform1 = player.transform;
+                transform1.position = currentMap.spawnPoints[i].position;
+                transform1.localRotation = currentMap.spawnPoints[i].localRotation;
                 player.gameObject.SetActive(true);
                 player.isAlive = true;
                 player.SetHatActive(true);
