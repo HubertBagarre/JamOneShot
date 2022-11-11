@@ -172,6 +172,7 @@ MonoBehaviour:
   playerIndex: -1
   isReady: 0
   currentColor: {r: 0, g: 0, b: 0, a: 0}
+  displayer: {fileID: 0}
   score: 0
   isAlive: 0
   isHatActive: 0
@@ -204,14 +205,15 @@ MonoBehaviour:
   slimeRb: {fileID: 6605470020350853240}
   inputAxis: {x: 0, y: 0}
   slimeBody: {fileID: 2013020533481570285}
+  slimeBase: {fileID: 8653723888552819721}
   borneArrow: 0
-  stretchAmount: 0
   speed: 0
   accelFactor: 0
   launchStrength: 10
   onWall: 0
   canLook: 0
   canJump: 0
+  travelling: 0
 --- !u!114 &4433941810446120633
 MonoBehaviour:
   m_ObjectHideFlags: 0
