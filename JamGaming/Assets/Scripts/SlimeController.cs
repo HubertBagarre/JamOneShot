@@ -34,14 +34,13 @@ public class SlimeController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        slimeRb.gravityScale = 0;
         _normalContact =(Vector2)transform.position-col.GetContact(0).point;
         _normalContact.Normalize();
         if (_remainingRebound > 0)
         {
             _remainingRebound--;
             _launchDirection = Vector2.Reflect(_launchDirection, _normalContact);
-            slimeRb.velocity = _launchDirection.normalized * slimeRb.velocity.magnitude;
+            slimeRb.velocity = _launchDirection.normalized * slimeRb.velocity;
             Launch();
         }
         else

@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -126,6 +126,7 @@ MonoBehaviour:
   inputAxis: {x: 0, y: 0}
   launchStrength: 10
   arrow: {fileID: 4813585092992409778}
+  _onWall: 0
 --- !u!114 &4813585092822271020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4813585092822271021}
         m_TargetAssemblyTypeName: SlimeController, Assembly-CSharp
-        m_MethodName: Launch
+        m_MethodName: NoRebound
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -186,12 +187,12 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4813585092822271021}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: SlimeController, Assembly-CSharp
+        m_MethodName: OneRebound
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -200,11 +201,35 @@ MonoBehaviour:
     m_ActionId: ca920a47-bbbd-4b13-887b-973dec171bb0
     m_ActionName: Player/Jump1[/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4813585092822271021}
+        m_TargetAssemblyTypeName: SlimeController, Assembly-CSharp
+        m_MethodName: TwoRebound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 62063fc9-0e31-4453-9188-a85d2b16536e
     m_ActionName: Player/Jump2[/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4813585092822271021}
+        m_TargetAssemblyTypeName: SlimeController, Assembly-CSharp
+        m_MethodName: ThreeRebound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2bf65afb-6a27-434b-898b-c857e522f2c1
     m_ActionName: Player/Jump3[/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
