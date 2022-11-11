@@ -17,7 +17,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private float jumpTimerAtLanding;
     [SerializeField] private Animator animator;
 
-    private PlayerInfo infos;
+    public PlayerInfo infos;
 
     private Vector2 _normalContact;
     private Vector2 _launchDirection;
