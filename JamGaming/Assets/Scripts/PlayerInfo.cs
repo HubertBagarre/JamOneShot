@@ -47,6 +47,7 @@ public class PlayerInfo : MonoBehaviour
     public void CanMove(bool value)
     {
         inGameController.canJump = value;
+        inGameController.onWall = value;
     }
 
     public void SetHatActive(bool value)
