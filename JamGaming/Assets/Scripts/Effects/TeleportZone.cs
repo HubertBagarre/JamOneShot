@@ -20,7 +20,7 @@ public class TeleportZone : MonoBehaviour, IEffect
         if(!player.canTeleport) return;
         player.canTeleport = false;
         var slimeTransform = slimeController.transform;
-        var rb = slimeController.GetComponent<Rigidbody2D>();
+        var rb = slimeController.slimeRb;
         var velocity = rb.velocity;
         var enterVelocity = transform.InverseTransformDirection(velocity);
         var exitVelocity = otherPortal.TransformDirection(enterVelocity);
