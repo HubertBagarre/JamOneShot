@@ -9,12 +9,12 @@ public class SlimeController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D slimeRb;
     [SerializeField] private Vector2 inputAxis;
-    [SerializeField] private float launchStrength;
     [SerializeField] private Transform arrow;
     [SerializeField] private bool _onWall;
     [SerializeField] private float borneArrow;
     [SerializeField] private float speed;
     [SerializeField] private float accelFactor;
+    [SerializeField] private float launchStrength;
     
     private PlayerInfo infos;
     
@@ -24,6 +24,9 @@ public class SlimeController : MonoBehaviour
     private int _remainingRebound;
     private int _maxRebound;
 
+    public bool canLook;
+    public bool canJump;
+    
     private void Start()
     {
         _onWall = true;
@@ -32,6 +35,7 @@ public class SlimeController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canLook) return;
         arrow.localScale = new Vector3(inputAxis.magnitude+1,1,0);
         arrow.localPosition = new Vector3(inputAxis.x, inputAxis.y, 0);
         arrow.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.right,inputAxis));
@@ -57,6 +61,7 @@ public class SlimeController : MonoBehaviour
 
     private void Launch()
     {
+        if(!canJump) return;
         slimeRb.AddForce(_launchDirection*launchStrength,ForceMode2D.Impulse);
         _normalContact = Vector2.zero;
         _onWall = false;
@@ -65,7 +70,6 @@ public class SlimeController : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext ctx)
     {
         inputAxis = ctx.ReadValue<Vector2>();
-        Debug.Log(Vector3.Dot(inputAxis,_normalContact));
         if (_normalContact == Vector2.zero) return;
         if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = new Vector2(0, 0);
     }
