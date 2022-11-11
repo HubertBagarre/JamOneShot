@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d04c205-4ed8-4660-85db-720dd1964556" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalFill.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalFill.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalFill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalFill.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalFill_0.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalFill_0.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalFill_Idle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalFill_Idle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Back.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Back.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Back.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Back_0.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Back_0.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Front.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Front.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Front.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Front.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Front_0.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/PortalLine-Front_0.controller.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1668157244964</updated>
       <workItem from="1668157259483" duration="7714000" />
-      <workItem from="1668179468870" duration="1286000" />
+      <workItem from="1668179468870" duration="1909000" />
     </task>
     <servers />
   </component>
