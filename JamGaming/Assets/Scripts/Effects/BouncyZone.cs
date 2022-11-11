@@ -6,6 +6,8 @@ public class BouncyZone : MonoBehaviour, IEffect
 {
     public void OnTrigger(SlimeController slimeController)
     {
-        throw new System.NotImplementedException();
+        slimeController._remainingRebound++;
+        slimeController._maxRebound++;
+        
     }
 }

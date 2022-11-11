@@ -15,15 +15,15 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private float accelFactor;
     [SerializeField] private float launchStrength;
     [SerializeField] private float jumpTimerAtLanding;
-    
+
     private PlayerInfo infos;
-    
+
     private Vector2 _normalContact;
     private Vector2 _launchDirection;
     private Vector2 _lastAllowedDirection;
     private bool _split;
-    private int _remainingRebound;
-    private int _maxRebound;
+    public int _remainingRebound;
+    public int _maxRebound;
     [SerializeField] private float _timer;
 
     public Rigidbody2D slimeRb;
@@ -31,7 +31,7 @@ public class SlimeController : MonoBehaviour
     public bool canLook;
     public bool canJump;
     public bool travelling;
-    
+
     private void Start()
     {
         onWall = true;
@@ -40,27 +40,33 @@ public class SlimeController : MonoBehaviour
 
     private void Update()
     {
+        _timer += Time.deltaTime;
+        UpdateBodyRotation();
+    }
+
+    private void UpdateBodyRotation()
+    {
         if (!canLook) return;
         if (travelling) return;
-        _timer += Time.deltaTime;
-        slimeBody.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,inputAxis));
+        slimeBody.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, inputAxis));
     }
 
     public void Collision(Collision2D col)
     {
-        _normalContact =col.GetContact(0).normal;
+        _normalContact = col.GetContact(0).normal;
         if (_remainingRebound > 0)
         {
             _remainingRebound--;
             _launchDirection = Vector2.Reflect(_launchDirection, _normalContact);
-            slimeRb.velocity = _launchDirection.normalized * speed * (1+(_maxRebound+1-_remainingRebound)*accelFactor);
+            slimeRb.velocity = _launchDirection.normalized * speed *
+                               (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
             Launch();
         }
         else
         {
             travelling = false;
             _lastAllowedDirection = _normalContact;
-            transform.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_normalContact));
+            transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _normalContact));
             slimeRb.velocity = Vector2.zero;
             _timer = 0;
             onWall = true;
@@ -69,24 +75,25 @@ public class SlimeController : MonoBehaviour
 
     private void Launch()
     {
-        if(!canJump) return;
+        if (!canJump) return;
         if (_timer < jumpTimerAtLanding) return;
         onWall = false;
         travelling = true;
-        transform.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_launchDirection));
-        slimeBody.localRotation = Quaternion.Euler(0,0,0);
-        slimeRb.AddForce(_launchDirection*launchStrength,ForceMode2D.Impulse);
+        transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _launchDirection));
+        slimeBody.localRotation = Quaternion.Euler(0, 0, 0);
+        slimeRb.AddForce(_launchDirection * launchStrength, ForceMode2D.Impulse);
         _normalContact = Vector2.zero;
     }
-    
+
     public void OnMoveInput(InputAction.CallbackContext ctx)
     {
         inputAxis = ctx.ReadValue<Vector2>();
         if (_normalContact == Vector2.zero) return;
-        
+
         if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = _lastAllowedDirection;
         else _lastAllowedDirection = inputAxis;
     }
+
     public void NoRebound(InputAction.CallbackContext ctx)
     {
         if (!onWall) return;
@@ -94,6 +101,7 @@ public class SlimeController : MonoBehaviour
         _launchDirection = inputAxis.normalized;
         Launch();
     }
+
     public void OneRebound(InputAction.CallbackContext ctx)
     {
         if (!onWall) return;
@@ -103,7 +111,7 @@ public class SlimeController : MonoBehaviour
         _maxRebound = _remainingRebound;
         Launch();
     }
-    
+
     public void TwoRebound(InputAction.CallbackContext ctx)
     {
         if (!onWall) return;
@@ -113,7 +121,7 @@ public class SlimeController : MonoBehaviour
         _maxRebound = _remainingRebound;
         Launch();
     }
-    
+
     public void ThreeRebound(InputAction.CallbackContext ctx)
     {
         if (!onWall) return;
