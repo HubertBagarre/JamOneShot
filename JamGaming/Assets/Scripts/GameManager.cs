@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Config"),SerializeField] private List<Map> maps = new ();
+    [SerializeField] private List<ScoreDisplayer> displayers = new List<ScoreDisplayer>();
     [SerializeField] private TextMeshProUGUI timeDisplayText;
     [SerializeField] private float maxRoundTime = 90f;
     [SerializeField] private float timeBeforeMove = 3f;
@@ -46,9 +45,20 @@ public class GameManager : MonoBehaviour
         currentRound = -1;
         waitScore = new WaitForSeconds(displayDuration);
         waitMove = new WaitForSeconds(timeBeforeMove);
-        foreach (var player in players)
+        ActivateDisplayers();
+        for (var index = 0; index < players.Count; index++)
         {
+            var player = players[index];
+            player.displayer = displayers[index];
             player.SetupForGame();
+        }
+    }
+
+    private void ActivateDisplayers()
+    {
+        for (int i = 0; i < displayers.Count; i++)
+        {
+            displayers[i].Activate(i < players.Count,i);
         }
     }
 
