@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
             spawnedMaps.Add(mapObj);
         }
         ActivateDisplayers();
+        sm.ClearSources();
         for (var index = 0; index < players.Count; index++)
         {
             var player = players[index];

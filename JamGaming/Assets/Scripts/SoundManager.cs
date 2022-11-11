@@ -48,6 +48,11 @@ public class SoundManager : MonoBehaviour
         sources.Add(player,audioSources);
     }
 
+    public void ClearSources()
+    {
+        sources.Clear();
+    }
+
     public void PlaySound(PlayerInfo player, int index)
     {
         if(!sources.ContainsKey(player)) return;
