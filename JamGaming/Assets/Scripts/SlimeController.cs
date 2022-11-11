@@ -106,8 +106,8 @@ public class SlimeController : MonoBehaviour
         Launch();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        other.GetComponent<IEffect>()?.OnTrigger(this);
+        col.GetComponent<IEffect>()?.OnTrigger(this);
     }
 }

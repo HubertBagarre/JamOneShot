@@ -205,6 +205,9 @@ MonoBehaviour:
   launchStrength: 10
   arrow: {fileID: 6141174289013747228}
   _onWall: 0
+  borneArrow: 0
+  speed: 0
+  accelFactor: 0
 --- !u!114 &4433941810446120633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3681861260816108755
 Transform:
   m_ObjectHideFlags: 0
