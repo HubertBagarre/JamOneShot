@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f92762e3490c36b40996d3e2f884de74
+guid: c18dc8243d6ce494da3ceded67842104
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -167,7 +167,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PortalOutline_0
+      name: PortalLine-Front_0
       rect:
         serializedVersion: 2
         x: 0
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c9806a541f14ac43a31e13acec87839
-      internalID: -4021929
+      spriteID: 56cfb94f37e3ee849acddb97569e6c37
+      internalID: -1094902078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PortalOutline_1
+      name: PortalLine-Front_1
       rect:
         serializedVersion: 2
         x: 307
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1df3b08b8790d4f4fb33316c774fc8ab
-      internalID: 1809801201
+      spriteID: c3c26e7ac1b657942a4abdb1b342d8e8
+      internalID: -257582351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PortalOutline_2
+      name: PortalLine-Front_2
       rect:
         serializedVersion: 2
         x: 614
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 454741d5f0a1396419604f224ee22ccb
-      internalID: -598652766
+      spriteID: 066270d78b9844649829d7253cdb1a60
+      internalID: -583627906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PortalOutline_3
+      name: PortalLine-Front_3
       rect:
         serializedVersion: 2
         x: 921
@@ -244,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fb39cbc7e7ff764d9a026aabbaebae7
-      internalID: -1708953043
+      spriteID: 846c672c2e1eb7a4fa56803849383335
+      internalID: -1193563235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PortalOutline_4
+      name: PortalLine-Front_4
       rect:
         serializedVersion: 2
         x: 1228
@@ -265,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56fc215a92432ee429d4655a4e9c2c61
-      internalID: 67719382
+      spriteID: 46589dd78589d5a4d972cc9dac1454fc
+      internalID: -466380025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PortalOutline_5
+      name: PortalLine-Front_5
       rect:
         serializedVersion: 2
         x: 1535
@@ -286,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69add449d2702a5428bf008c0c060c23
-      internalID: -937602735
+      spriteID: 21ec55dd42d425d4a9fb7a70ad4275c3
+      internalID: 899814694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PortalOutline_6
+      name: PortalLine-Front_6
       rect:
         serializedVersion: 2
         x: 1842
@@ -307,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bb5436c2b395cf448d7425c1408e95a
-      internalID: -224651514
+      spriteID: a83c1e01ed666fc4db550984cb9def7d
+      internalID: -211102623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PortalOutline_7
+      name: PortalLine-Front_7
       rect:
         serializedVersion: 2
         x: 2149
@@ -328,8 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de632b2f6065339458e9f0726f7b56f8
-      internalID: -1144901256
+      spriteID: 4baa30e2f67f0b34593f6f9aca8adc90
+      internalID: 49102782
       vertices: []
       indices: 
       edges: []
@@ -345,14 +345,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PortalOutline_4: 67719382
-      PortalOutline_0: -4021929
-      PortalOutline_3: -1708953043
-      PortalOutline_7: -1144901256
-      PortalOutline_2: -598652766
-      PortalOutline_6: -224651514
-      PortalOutline_5: -937602735
-      PortalOutline_1: 1809801201
+      PortalLine-Front_1: -257582351
+      PortalLine-Front_3: -1193563235
+      PortalLine-Front_2: -583627906
+      PortalLine-Front_7: 49102782
+      PortalLine-Front_6: -211102623
+      PortalLine-Front_4: -466380025
+      PortalLine-Front_0: -1094902078
+      PortalLine-Front_5: 899814694
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
