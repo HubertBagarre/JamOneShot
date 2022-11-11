@@ -17,7 +17,7 @@ public class EffectTriggerer : MonoBehaviour
         else
         {
             if (col.gameObject.layer != 7) return;
-            GameManager.instance.EliminatePlayer(controller.);
+            GameManager.instance.EliminatePlayer(controller.infos.playerIndex);
         }
     }
 }
