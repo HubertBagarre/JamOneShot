@@ -14,6 +14,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float accelFactor;
     [SerializeField] private float launchStrength;
+    [SerializeField] private float jumpTimerAtLanding;
     
     private PlayerInfo infos;
     
@@ -23,6 +24,7 @@ public class SlimeController : MonoBehaviour
     private bool _split;
     private int _remainingRebound;
     private int _maxRebound;
+    [SerializeField] private float _timer;
 
     public Rigidbody2D slimeRb;
     public bool onWall;
@@ -36,10 +38,11 @@ public class SlimeController : MonoBehaviour
         infos = GetComponent<PlayerInfo>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!canLook) return;
         if (travelling) return;
+        _timer += Time.deltaTime;
         slimeBody.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,inputAxis));
     }
 
@@ -57,8 +60,9 @@ public class SlimeController : MonoBehaviour
         {
             travelling = false;
             _lastAllowedDirection = _normalContact;
-            slimeBase.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_normalContact));
+            transform.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_normalContact));
             slimeRb.velocity = Vector2.zero;
+            _timer = 0;
             onWall = true;
         }
     }
@@ -66,9 +70,10 @@ public class SlimeController : MonoBehaviour
     private void Launch()
     {
         if(!canJump) return;
+        if (_timer < jumpTimerAtLanding) return;
         onWall = false;
         travelling = true;
-        slimeBase.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_launchDirection));
+        transform.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_launchDirection));
         slimeBody.localRotation = Quaternion.Euler(0,0,0);
         slimeRb.AddForce(_launchDirection*launchStrength,ForceMode2D.Impulse);
         _normalContact = Vector2.zero;

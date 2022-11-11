@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306015948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 1310475750415144175}
   - component: {fileID: 4813585092822271021}
   - component: {fileID: 4813585092822271020}
+  - component: {fileID: 150472587533444674}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Untagged
@@ -452,6 +453,8 @@ MonoBehaviour:
   speed: 10
   accelFactor: 0.01
   launchStrength: 10
+  jumpTimerAtLanding: 0.5
+  _timer: 0
   slimeRb: {fileID: 4813585092822271016}
   onWall: 0
   canLook: 0
@@ -603,6 +606,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!111 &150472587533444674
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813585092822271017}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &4813585092992409779
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,9 +722,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.125}
+  m_Offset: {x: 0, y: 0.16}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.23
 --- !u!114 &7479293232358883925
 MonoBehaviour:
   m_ObjectHideFlags: 0
