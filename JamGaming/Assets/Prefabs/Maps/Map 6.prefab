@@ -137,10 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3589473230829806927}
+  - {fileID: 2153367752874378810}
+  - {fileID: 9208910054044129167}
+  - {fileID: 8212939918244341347}
 --- !u!1 &3116296328324748172
 GameObject:
   m_ObjectHideFlags: 0
