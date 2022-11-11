@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private GameObject currentMapObj;
     [SerializeField] private int currentRound = 0;
     [SerializeField] private float elapsedTime;
-    [SerializeField] private bool canMove = true;
+    [SerializeField] private bool canMove = false;
 
     public static GameManager instance;
 
@@ -91,21 +91,20 @@ public class GameManager : MonoBehaviour
                 player.isAlive = true;
             }
         }
-        //Routine (countdown)
-        canMove = false;
+        StartCoroutine(CountdownRoutine());
+        
     }
 
-    private void CountdownRoutine()
+    private IEnumerator CountdownRoutine()
     {
-        
+        canMove = false;
+        yield return waitMove;
+        canMove = true;
     }
     
     private void DisplayScore()
     {
-        canMove = true;
         StartCoroutine(DisplayScoreRoutine());
-        if(!DidPlayerWin()) StartNewRound();
-        
     }
 
     private IEnumerator DisplayScoreRoutine()
@@ -118,7 +117,7 @@ public class GameManager : MonoBehaviour
             player.CanMove(true);
             player.SetHatActive(true);
         }
-        
+        if(!DidPlayerWin()) StartNewRound();
     }
 
     private bool DidPlayerWin()
