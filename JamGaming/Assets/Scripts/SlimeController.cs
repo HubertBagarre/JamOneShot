@@ -9,7 +9,6 @@ public class SlimeController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D slimeRb;
     [SerializeField] private Vector2 inputAxis;
-    [SerializeField] private Transform arrow;
     [SerializeField] private Transform slimeBody;
     [SerializeField] private float borneArrow;
     [SerializeField] private float stretchAmount;
@@ -38,7 +37,6 @@ public class SlimeController : MonoBehaviour
     private void FixedUpdate()
     {
         if (!canLook) return;
-        arrow.localPosition = inputAxis*stretchAmount;
         slimeBody.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,inputAxis));
         slimeBody.localScale = new Vector3(1, 1, 1);
     }
@@ -73,7 +71,7 @@ public class SlimeController : MonoBehaviour
     {
         inputAxis = ctx.ReadValue<Vector2>();
         if (_normalContact == Vector2.zero) return;
-        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = new Vector2(0, 0);
+        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = _normalContact;
     }
     public void NoRebound(InputAction.CallbackContext ctx)
     {
