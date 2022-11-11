@@ -12,13 +12,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float maxRoundTime = 90f;
     [SerializeField] private float timeBeforeMove = 3f;
     [SerializeField] private float displayDuration = 5f;
+    private WaitForSeconds wait;
     
     [Header("Current Game")]
     public static List<PlayerInfo> players = new List<PlayerInfo>();
 
     [SerializeField] private Map currentMap;
+    [SerializeField] private int currentRound = 0;
     [SerializeField] private float elapsedTime;
-    [SerializeField] private bool isDisplayingScore = true;
+    [SerializeField] private bool canMove = true;
 
     public static GameManager instance;
 
@@ -30,16 +32,29 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        SetupGame();
         DisplayScore();
+    }
+
+    private void SetupGame()
+    {
+        Debug.Log($"Setting up  game with {players.Count} players");
+        currentRound = -1;
+        wait = new WaitForSeconds(displayDuration);
+        foreach (var player in players)
+        {
+            player.SetupForGame();
+        }
     }
 
     private void Update()
     {
-        if(isDisplayingScore) return;
+        if(canMove) return;
         elapsedTime += Time.deltaTime;
         timeDisplayText.text = ConvertedElapsedTime(elapsedTime);
         if (elapsedTime >= maxRoundTime)
         {
+            Debug.Log($"Max time {maxRoundTime} has been reached!");
             StartDeathZone();
         }
         
@@ -58,25 +73,35 @@ public class GameManager : MonoBehaviour
 
     private void StartNewRound()
     {
+        Debug.Log($"Starting Round up  game with {players.Count} players");
+        currentRound++;
         ChangeMap();
         elapsedTime = 0;
         for (int i = 0; i < players.Count; i++)
         {
-            if(i >=0 ||  i < currentMap.spawnPoints.Count) players[i].transform.position = currentMap.spawnPoints[i].position;
-        }
-        foreach (var player in players)
-        {
-            player.isAlive = true;
+            var player = players[i];
+            if (i >= 0 || i < currentMap.spawnPoints.Count)
+            {
+                player.transform.position = currentMap.spawnPoints[i].position;
+                player.gameObject.SetActive(true);
+                player.isAlive = true;
+            }
         }
         //Routine (countdown)
-        isDisplayingScore = false;
+        canMove = false;
     }
     
     private void DisplayScore()
     {
-        isDisplayingScore = true;
+        canMove = true;
         //Routine (display score for x amount of time)
         StartNewRound();
+    }
+
+    private IEnumerator DisplayScoreRoutine()
+    {
+        yield return wait;
+        
     }
 
     private void CheckVictory()
@@ -86,12 +111,21 @@ public class GameManager : MonoBehaviour
 
     private void CheckToEndRound()
     {
-        
+        var alive = 0;
+        foreach (var player in players)
+        {
+            if (player.isAlive) alive++;
+        }
+        if(alive>1) return;
+        EndRound();
     }
 
-    public void OnPlayerDeath()
+    private void EndRound()
     {
-        CheckToEndRound();
+        foreach (var player in players)
+        {
+            player.IncreaseScore();
+        }
     }
 
     private void ChangeMap()
@@ -104,5 +138,6 @@ public class GameManager : MonoBehaviour
     public void EliminatePlayer(int playerIndex)
     {
         players[playerIndex].gameObject.SetActive(false);
+        CheckToEndRound();
     }
 }
