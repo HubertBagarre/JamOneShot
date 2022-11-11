@@ -15,6 +15,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private float accelFactor;
     [SerializeField] private float launchStrength;
     [SerializeField] private float jumpTimerAtLanding;
+    [SerializeField] private Animator animator;
 
     private PlayerInfo infos;
 
@@ -31,11 +32,15 @@ public class SlimeController : MonoBehaviour
     public bool canLook;
     public bool canJump;
     public bool travelling;
+    private static readonly int Jump = Animator.StringToHash("Jump");
+    private static readonly int Bounce = Animator.StringToHash("Bounce");
+    private static readonly int Land = Animator.StringToHash("Land");
 
     private void Start()
     {
         onWall = true;
         infos = GetComponent<PlayerInfo>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -68,6 +73,7 @@ public class SlimeController : MonoBehaviour
             _remainingRebound--;
             _launchDirection = Vector2.Reflect(_launchDirection, _normalContact);
             slimeRb.velocity = _launchDirection.normalized * speed * (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
+            animator.SetTrigger(Bounce);
             Launch();
         }
         else
@@ -79,6 +85,7 @@ public class SlimeController : MonoBehaviour
             slimeRb.bodyType = RigidbodyType2D.Kinematic;
             _timer = 0;
             onWall = true;
+            animator.SetTrigger(Land);
         }
     }
 
@@ -105,6 +112,7 @@ public class SlimeController : MonoBehaviour
         if (!onWall) return;
         if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
+        animator.SetTrigger(Jump);
         Launch();
     }
 
