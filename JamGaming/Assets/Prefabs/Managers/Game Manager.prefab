@@ -48,6 +48,8 @@ MonoBehaviour:
   - {fileID: 2397524206323993424, guid: 89c1d50806b6141489ac7a4f4f651534, type: 3}
   - {fileID: 2128069267759401815, guid: 0bbe7f58567a31147beb7cf55f339288, type: 3}
   - {fileID: 2132892126318041177, guid: bd81ce192cf4efa42ac6076c5eee4385, type: 3}
+  - {fileID: 1029821967428929562, guid: b369a07edb28ea440b79c81d18b4ac5d, type: 3}
+  - {fileID: 907318360471070384, guid: 945528fea6bce8046a0613db30437d9e, type: 3}
   displayers: []
   timeDisplayText: {fileID: 0}
   maxRoundTime: 90
