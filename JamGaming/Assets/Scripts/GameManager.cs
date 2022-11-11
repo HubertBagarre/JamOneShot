@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("Config"),SerializeField] private List<Map> maps = new ();
-    
+    private List<GameObject> spawnedMaps = new List<GameObject>();
     [SerializeField] private List<ScoreDisplayer> displayers = new List<ScoreDisplayer>();
     [SerializeField] private TextMeshProUGUI timeDisplayText;
     [SerializeField] private float maxRoundTime = 90f;
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Current Game")]
     public static List<PlayerInfo> players = new List<PlayerInfo>();
-    private List<Map> playedMaps = new List<Map>();
+    private List<GameObject> playedMaps = new List<GameObject>();
     private int winnerIndex;
     [SerializeField] private Map currentMap;
     private GameObject currentMapObj;
@@ -50,6 +50,12 @@ public class GameManager : MonoBehaviour
         currentRound = -1;
         waitScore = new WaitForSeconds(displayDuration);
         waitMove = new WaitForSeconds(timeBeforeMove);
+        foreach (var map in maps)
+        {
+            var mapObj = Instantiate(map, Vector3.zero, Quaternion.identity).gameObject;
+            mapObj.SetActive(false);
+            spawnedMaps.Add(mapObj);
+        }
         ActivateDisplayers();
         for (var index = 0; index < players.Count; index++)
         {
@@ -197,16 +203,17 @@ public class GameManager : MonoBehaviour
     private void ChangeMap()
     {
         Debug.Log($"Changing Map");
-        if(currentMapObj!=null) Destroy(currentMapObj);
-        if (maps.Count <= 0)
+        if(currentMapObj!=null) currentMapObj.SetActive(false);
+        if (spawnedMaps.Count <= 0)
         {
-            maps = playedMaps.ToList();
+            spawnedMaps = playedMaps.ToList();
             playedMaps.Clear();
         }
-        currentMap = maps[Random.Range(0,maps.Count)];
-        playedMaps.Add(currentMap);
-        maps.Remove(currentMap);
-        currentMapObj = Instantiate(currentMap, Vector3.zero, Quaternion.identity).gameObject;
+        currentMapObj = spawnedMaps[Random.Range(0,spawnedMaps.Count)];
+        playedMaps.Add(currentMapObj);
+        spawnedMaps.Remove(currentMapObj);
+        currentMap = currentMapObj.GetComponent<Map>();
+        currentMapObj.SetActive(true);
     }
 
     public void EliminatePlayer(int playerIndex)
