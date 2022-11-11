@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &306015949 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 306015949, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
-  m_PrefabInstance: {fileID: 4813585092423695865}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &449038975
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,14 +724,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 306015949, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 306015949, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4813585092822271017, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
       propertyPath: m_Name
       value: Slime
@@ -783,22 +770,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4813585092822271018, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813585092822271021, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
-      propertyPath: arrow
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813585092822271021, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
-      propertyPath: slimeBase
-      value: 
-      objectReference: {fileID: 306015949}
-    - target: {fileID: 4813585092822271023, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
-      propertyPath: m_Radius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4813585092822271023, guid: b38a8a0ad754b844d950093502d8550c, type: 3}
-      propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
