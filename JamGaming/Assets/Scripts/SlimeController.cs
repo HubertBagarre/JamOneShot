@@ -11,7 +11,6 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private Vector2 inputAxis;
     [SerializeField] private Transform arrow;
     [SerializeField] private Transform slimeBody;
-    [SerializeField] private bool _onWall;
     [SerializeField] private float borneArrow;
     [SerializeField] private float stretchAmount;
     [SerializeField] private float speed;
@@ -26,12 +25,13 @@ public class SlimeController : MonoBehaviour
     private int _remainingRebound;
     private int _maxRebound;
 
+    public bool onWall;
     public bool canLook;
     public bool canJump;
     
     private void Start()
     {
-        _onWall = true;
+        onWall = true;
         infos = GetComponent<PlayerInfo>();
     }
 
@@ -56,7 +56,7 @@ public class SlimeController : MonoBehaviour
         }
         else
         {
-            _onWall = true;
+            onWall = true;
             slimeRb.velocity = Vector2.zero;
         }
     }
@@ -66,7 +66,7 @@ public class SlimeController : MonoBehaviour
         if(!canJump) return;
         slimeRb.AddForce(_launchDirection*launchStrength,ForceMode2D.Impulse);
         _normalContact = Vector2.zero;
-        _onWall = false;
+        onWall = false;
     }
     
     public void OnMoveInput(InputAction.CallbackContext ctx)
@@ -77,14 +77,14 @@ public class SlimeController : MonoBehaviour
     }
     public void NoRebound(InputAction.CallbackContext ctx)
     {
-        if (!_onWall) return;
+        if (!onWall) return;
         if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
         Launch();
     }
     public void OneRebound(InputAction.CallbackContext ctx)
     {
-        if (!_onWall) return;
+        if (!onWall) return;
         if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 1;
@@ -94,7 +94,7 @@ public class SlimeController : MonoBehaviour
     
     public void TwoRebound(InputAction.CallbackContext ctx)
     {
-        if (!_onWall) return;
+        if (!onWall) return;
         if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 2;
@@ -104,7 +104,7 @@ public class SlimeController : MonoBehaviour
     
     public void ThreeRebound(InputAction.CallbackContext ctx)
     {
-        if (!_onWall) return;
+        if (!onWall) return;
         if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 3;
