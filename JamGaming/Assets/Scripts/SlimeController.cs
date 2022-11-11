@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class SlimeController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D slimeRb;
     [SerializeField] private Vector2 inputAxis;
     [SerializeField] private Transform slimeBody;
     [SerializeField] private Transform slimeBase;
@@ -20,10 +19,12 @@ public class SlimeController : MonoBehaviour
     
     private Vector2 _normalContact;
     private Vector2 _launchDirection;
+    private Vector2 _lastAllowedDirection;
     private bool _split;
     private int _remainingRebound;
     private int _maxRebound;
 
+    public Rigidbody2D slimeRb;
     public bool onWall;
     public bool canLook;
     public bool canJump;
@@ -42,10 +43,9 @@ public class SlimeController : MonoBehaviour
         slimeBody.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,inputAxis));
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    public void Collision(Collision2D col)
     {
-        _normalContact =(Vector2)transform.position-col.GetContact(0).point;
-        _normalContact.Normalize();
+        _normalContact =col.GetContact(0).normal;
         if (_remainingRebound > 0)
         {
             _remainingRebound--;
@@ -55,28 +55,32 @@ public class SlimeController : MonoBehaviour
         }
         else
         {
-            onWall = true;
             travelling = false;
+            _lastAllowedDirection = _normalContact;
             slimeBase.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_normalContact));
             slimeRb.velocity = Vector2.zero;
+            onWall = true;
         }
     }
 
     private void Launch()
     {
         if(!canJump) return;
+        onWall = false;
         travelling = true;
-        slimeBody.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_launchDirection));
+        slimeBase.rotation = Quaternion.Euler(0,0,Vector2.SignedAngle(Vector2.up,_launchDirection));
+        slimeBody.localRotation = Quaternion.Euler(0,0,0);
         slimeRb.AddForce(_launchDirection*launchStrength,ForceMode2D.Impulse);
         _normalContact = Vector2.zero;
-        onWall = false;
     }
     
     public void OnMoveInput(InputAction.CallbackContext ctx)
     {
         inputAxis = ctx.ReadValue<Vector2>();
         if (_normalContact == Vector2.zero) return;
-        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = _normalContact;
+        
+        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = _lastAllowedDirection;
+        else _lastAllowedDirection = inputAxis;
     }
     public void NoRebound(InputAction.CallbackContext ctx)
     {
