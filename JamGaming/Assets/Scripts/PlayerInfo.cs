@@ -9,6 +9,7 @@ public class PlayerInfo : MonoBehaviour
     public Color currentColor;
     
     public int score = 0;
+    public bool isAlive = false;
     
     private LobbyController lobbyController;
     private SlimeController inGameController;
@@ -24,6 +25,7 @@ public class PlayerInfo : MonoBehaviour
         score = 0;
         lobbyController.isInLobby = false;
         inGameController.enabled = false;
+        isAlive = true;
     }
     
 }
