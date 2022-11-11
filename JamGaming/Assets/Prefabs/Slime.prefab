@@ -415,7 +415,9 @@ MonoBehaviour:
   score: 0
   isAlive: 0
   isHatActive: 0
+  canTeleport: 1
   hatParent: {fileID: 8684331866169501435}
+  coloredSprites: []
 --- !u!114 &1310475750415144175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,6 +612,7 @@ GameObject:
   - component: {fileID: 4813585092992409778}
   - component: {fileID: 4813585092992409781}
   - component: {fileID: 5509321954425659253}
+  - component: {fileID: 7479293232358883925}
   m_Layer: 7
   m_Name: SlimeBody
   m_TagString: Untagged
@@ -702,3 +705,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.125}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &7479293232358883925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813585092992409779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210fa56c9c562484b9e75bbba741cf9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slimeController: {fileID: 4813585092822271021}
