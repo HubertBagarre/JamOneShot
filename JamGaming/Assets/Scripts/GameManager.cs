@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private GameObject currentMapObj;
     [SerializeField] private int currentRound = 0;
     [SerializeField] private float elapsedTime;
-    [SerializeField] private bool canMove = false;
+    [SerializeField] private bool timeCanMove = false;
 
     public static GameManager instance;
 
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Setting up  game with {players.Count} players");
         currentRound = -1;
         waitScore = new WaitForSeconds(displayDuration);
+        waitMove = new WaitForSeconds(timeBeforeMove);
         foreach (var player in players)
         {
             player.SetupForGame();
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(canMove) return;
+        if(!timeCanMove) return;
         elapsedTime += Time.deltaTime;
         timeDisplayText.text = ConvertedElapsedTime(elapsedTime);
         if (elapsedTime >= maxRoundTime)
@@ -89,6 +90,7 @@ public class GameManager : MonoBehaviour
                 player.transform.position = currentMap.spawnPoints[i].position;
                 player.gameObject.SetActive(true);
                 player.isAlive = true;
+                player.CanLook(true);
             }
         }
         StartCoroutine(CountdownRoutine());
@@ -97,9 +99,12 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CountdownRoutine()
     {
-        canMove = false;
         yield return waitMove;
-        canMove = true;
+        foreach (var player in players)
+        {
+            player.CanMove(true);
+        }
+        timeCanMove = true;
     }
     
     private void DisplayScore()
@@ -109,12 +114,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator DisplayScoreRoutine()
     {
+        timeDisplayText.text = "0:00";
+        timeCanMove = false;
         scoreOverlayParent.SetActive(true);
         yield return waitScore;
         scoreOverlayParent.SetActive(false);
         foreach (var player in players)
         {
-            player.CanMove(true);
+            player.CanLook(true);
             player.SetHatActive(true);
         }
         if(!DidPlayerWin()) StartNewRound();
@@ -144,6 +151,7 @@ public class GameManager : MonoBehaviour
         foreach (var player in players)
         {
             player.IncreaseScore();
+            player.CanLook(false);
         }
         DisplayScore();
     }

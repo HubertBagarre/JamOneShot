@@ -27,7 +27,9 @@ public class PlayerInfo : MonoBehaviour
         Debug.Log($"Setting Player {playerIndex} for game");
         score = 0;
         lobbyController.isInLobby = false;
-        inGameController.enabled = false;
+        inGameController.enabled = true;
+        CanLook(false);
+        CanMove(false);
         isAlive = false;
         SetHatActive(false);
     }
@@ -37,9 +39,14 @@ public class PlayerInfo : MonoBehaviour
         if (isAlive) score++;
     }
 
+    public void CanLook(bool value)
+    {
+        inGameController.canLook = value;
+    }
+    
     public void CanMove(bool value)
     {
-        inGameController.enabled = value;
+        inGameController.canJump = value;
     }
 
     public void SetHatActive(bool value)
