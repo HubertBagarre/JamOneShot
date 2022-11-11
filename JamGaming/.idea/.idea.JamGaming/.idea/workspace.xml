@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d04c205-4ed8-4660-85db-720dd1964556" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Effects/TeleportZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Effects/TeleportZone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerLobby.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerLobby.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
