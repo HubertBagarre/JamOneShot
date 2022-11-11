@@ -117,9 +117,8 @@ public class SlimeController : MonoBehaviour
     public void Deflect(Vector2 otherDirection)
     {
         canJump = true;
-        slimeRb.velocity = Vector2.zero;
+        slimeRb.velocity -= slimeRb.velocity;
         _launchDirection = otherDirection;
-        Launch();
     }
 
     public void OnMoveInput(InputAction.CallbackContext ctx)
