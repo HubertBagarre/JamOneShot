@@ -14,6 +14,7 @@ public class SlimeController : MonoBehaviour
 
     private bool _onWall;
     private Vector2 _normalContact;
+    private Vector2 _launchDirection;
     private bool _split;
     private int _remainingRebound;
 
@@ -34,42 +35,59 @@ public class SlimeController : MonoBehaviour
         slimeRb.gravityScale = 0;
         _normalContact =(Vector2)transform.position-col.GetContact(0).point;
         _normalContact.Normalize();
-        _onWall = true;
-        slimeRb.velocity = Vector2.zero;
+        if (_remainingRebound > 0)
+        {
+            _remainingRebound--;
+            _launchDirection = Vector2.Reflect(_launchDirection, _normalContact);
+            slimeRb.velocity = _launchDirection.normalized * slimeRb.velocity.magnitude;
+            Launch();
+        }
+        else
+        {
+            _onWall = true;
+            slimeRb.velocity = Vector2.zero;
+        }
     }
 
-    public void Launch(InputAction.CallbackContext ctx)
+    private void Launch()
     {
-        if (!_onWall) return;
-        slimeRb.AddForce(inputAxis.normalized*launchStrength,ForceMode2D.Impulse);
+        slimeRb.AddForce(_launchDirection*launchStrength,ForceMode2D.Impulse);
         _normalContact = Vector2.zero;
         _onWall = false;
     }
-
+    
     public void OnMoveInput(InputAction.CallbackContext ctx)
     {
         inputAxis = ctx.ReadValue<Vector2>();
         if (Vector3.Dot(inputAxis, _normalContact) < 0) inputAxis = new Vector2(0, 0);
     }
-
+    public void NoRebound(InputAction.CallbackContext ctx)
+    {
+        if (!_onWall) return;
+        _launchDirection = inputAxis.normalized;
+        Launch();
+    }
     public void OneRebound(InputAction.CallbackContext ctx)
     {
         if (!_onWall) return;
+        _launchDirection = inputAxis.normalized;
         _remainingRebound = 1;
-        Launch(ctx);
+        Launch();
     }
     
     public void TwoRebound(InputAction.CallbackContext ctx)
     {
         if (!_onWall) return;
+        _launchDirection = inputAxis.normalized;
         _remainingRebound = 2;
-        Launch(ctx);
+        Launch();
     }
     
     public void ThreeRebound(InputAction.CallbackContext ctx)
     {
         if (!_onWall) return;
+        _launchDirection = inputAxis.normalized;
         _remainingRebound = 3;
-        Launch(ctx);
+        Launch();
     }
 }
