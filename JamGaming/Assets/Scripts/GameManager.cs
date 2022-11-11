@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Config"),SerializeField] private List<Map> maps = new ();
     [SerializeField] private TextMeshProUGUI timeDisplayText;
-    [SerializeField] private float maxRoundTime = 120f;
+    [SerializeField] private float maxRoundTime = 90f;
     [SerializeField] private float timeBeforeMove = 3f;
     [SerializeField] private float displayDuration = 5f;
     
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
         elapsedTime = 0;
         for (int i = 0; i < players.Count; i++)
         {
-            //players[i].transform.position = currentMap.spawnPoints[i].position;
+            if(i >=0 ||  i < currentMap.spawnPoints.Count) players[i].transform.position = currentMap.spawnPoints[i].position;
         }
         foreach (var player in players)
         {
@@ -95,6 +96,13 @@ public class GameManager : MonoBehaviour
 
     private void ChangeMap()
     {
+        Destroy(currentMap);
         currentMap = maps[0];
+        Instantiate(currentMap, Vector3.zero, Quaternion.identity);
+    }
+
+    public void EliminatePlayer(int playerIndex)
+    {
+        players[playerIndex].gameObject.SetActive(false);
     }
 }
