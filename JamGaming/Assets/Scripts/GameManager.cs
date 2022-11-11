@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("Current Game")]
     public static List<PlayerInfo> players = new List<PlayerInfo>();
 
+    private int winnerIndex;
     [SerializeField] private Map currentMap;
     private GameObject currentMapObj;
     [SerializeField] private int currentRound = 0;
@@ -155,7 +156,11 @@ public class GameManager : MonoBehaviour
     {
         foreach (var player in players)
         {
-            if (player.score >= targetScore) return true;
+            if (player.score >= targetScore)
+            {
+                winnerIndex = player.playerIndex;
+                return true;
+            }
         }
         return false;
     }
