@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &329026076471040015
 MonoBehaviour:
@@ -45,4 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maps:
-  - {fileID: 6442741112278689747, guid: 8c5fbab2601a9b74a87ddb0d780b3c32, type: 3}
+  - {fileID: 2397524206323993424, guid: 89c1d50806b6141489ac7a4f4f651534, type: 3}
+  - {fileID: 2128069267759401815, guid: 0bbe7f58567a31147beb7cf55f339288, type: 3}
+  displayers: []
+  timeDisplayText: {fileID: 0}
+  maxRoundTime: 90
+  timeBeforeMove: 1
+  displayDuration: 1
+  targetScore: 3
+  scoreOverlayParent: {fileID: 0}
+  currentMap: {fileID: 0}
+  currentRound: 0
+  elapsedTime: 0
+  timeCanMove: 0
