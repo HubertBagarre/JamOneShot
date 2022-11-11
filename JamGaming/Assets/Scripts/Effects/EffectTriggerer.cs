@@ -5,10 +5,19 @@ using UnityEngine;
 
 public class EffectTriggerer : MonoBehaviour
 {
-    [SerializeField] private SlimeController controller;
+    public SlimeController controller;
+    public Rigidbody2D slimeRb;
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        col.GetComponent<IEffect>()?.OnTrigger(controller);
+        if (col.gameObject.layer == 9)
+        {
+            controller.Deflect(col.GetComponent<EffectTriggerer>().controller.slimeRb.velocity.normalized);
+        }
+        else
+        {
+            if (col.gameObject.layer != 7) return;
+            GameManager.instance.EliminatePlayer(controller.);
+        }
     }
 }
