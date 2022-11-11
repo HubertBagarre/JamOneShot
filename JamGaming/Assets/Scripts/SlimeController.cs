@@ -11,13 +11,18 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private Vector2 inputAxis;
     [SerializeField] private float launchStrength;
     [SerializeField] private Transform arrow;
-    private PlayerInfo infos;
-
     [SerializeField] private bool _onWall;
+    [SerializeField] private float borneArrow;
+    [SerializeField] private float speed;
+    [SerializeField] private float accelFactor;
+    
+    private PlayerInfo infos;
+    
     private Vector2 _normalContact;
     private Vector2 _launchDirection;
     private bool _split;
     private int _remainingRebound;
+    private int _maxRebound;
 
     private void Start()
     {
@@ -40,7 +45,7 @@ public class SlimeController : MonoBehaviour
         {
             _remainingRebound--;
             _launchDirection = Vector2.Reflect(_launchDirection, _normalContact);
-            slimeRb.velocity = _launchDirection.normalized * slimeRb.velocity;
+            slimeRb.velocity = _launchDirection.normalized * speed * (1+(_maxRebound+1-_remainingRebound)*accelFactor);
             Launch();
         }
         else
@@ -60,35 +65,44 @@ public class SlimeController : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext ctx)
     {
         inputAxis = ctx.ReadValue<Vector2>();
-        if (Vector3.Dot(inputAxis, _normalContact) < 0) inputAxis = new Vector2(0, 0);
+        Debug.Log(Vector3.Dot(inputAxis,_normalContact));
+        if (_normalContact == Vector2.zero) return;
+        if (Vector3.Dot(inputAxis, _normalContact) < borneArrow) inputAxis = new Vector2(0, 0);
     }
     public void NoRebound(InputAction.CallbackContext ctx)
     {
         if (!_onWall) return;
+        if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
         Launch();
     }
     public void OneRebound(InputAction.CallbackContext ctx)
     {
         if (!_onWall) return;
+        if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 1;
+        _maxRebound = _remainingRebound;
         Launch();
     }
     
     public void TwoRebound(InputAction.CallbackContext ctx)
     {
         if (!_onWall) return;
+        if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 2;
+        _maxRebound = _remainingRebound;
         Launch();
     }
     
     public void ThreeRebound(InputAction.CallbackContext ctx)
     {
         if (!_onWall) return;
+        if (inputAxis.sqrMagnitude == 0) return;
         _launchDirection = inputAxis.normalized;
         _remainingRebound = 3;
+        _maxRebound = _remainingRebound;
         Launch();
     }
 
