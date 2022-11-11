@@ -11,6 +11,7 @@ public class HeadColliderScript : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (!slimeController.travelling) return;
         col.GetComponent<IEffect>()?.OnTrigger(slimeController);
     }
 
