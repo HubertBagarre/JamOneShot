@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d04c205-4ed8-4660-85db-720dd1964556" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Shipped/CreditScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Shipped/CreditScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Shipped/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Shipped/LobbyScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Shipped/MenuScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Shipped/MenuScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Final/Slime.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Final/Slime.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/Origin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/Origin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Shipped/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Shipped/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +73,7 @@
       <updated>1668157244964</updated>
       <workItem from="1668157259483" duration="7714000" />
       <workItem from="1668179468870" duration="11804000" />
-      <workItem from="1668243681528" duration="11300000" />
+      <workItem from="1668243681528" duration="12201000" />
     </task>
     <servers />
   </component>

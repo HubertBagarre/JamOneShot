@@ -15,6 +15,7 @@ public class PlayerInfo : MonoBehaviour
     public bool canTeleport = true;
 
     [SerializeField] private SpriteRenderer hatRenderer;
+    [SerializeField] private ParticleSystem trail;
     private LobbyController lobbyController;
     private SlimeController inGameController;
     [SerializeField] private List<SpriteRenderer> coloredSprites = new List<SpriteRenderer>();
@@ -78,6 +79,9 @@ public class PlayerInfo : MonoBehaviour
         {
             spriteRenderer.color = currentColor;
         }
+
+        var main = trail.main;
+        main.startColor = new ParticleSystem.MinMaxGradient(color);
     }
 
     public void ChangeHat(Sprite hat)
