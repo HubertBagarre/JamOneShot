@@ -6,18 +6,20 @@ using UnityEngine;
 public class EffectTriggerer : MonoBehaviour
 {
     public SlimeController controller;
-    public Rigidbody2D slimeRb;
-    
+    public bool canKill;
+    private float _timer;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.layer == 9)
         {
+            canKill = false;
             Debug.Log("Deflect !");
-            controller.Deflect(col.GetComponent<EffectTriggerer>().controller.slimeRb.velocity.normalized);
+            controller.Deflect();
         }
         else
         {
-            if (col.gameObject.layer != 7) return;
+            if (!canKill) return;
             GameManager.instance.EliminatePlayer(controller.infos.playerIndex);
         }
     }

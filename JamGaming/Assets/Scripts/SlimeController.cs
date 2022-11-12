@@ -10,6 +10,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private Vector2 inputAxis;
     [SerializeField] private Transform slimeBody;
     [SerializeField] private Transform slimeBase;
+    [SerializeField] private EffectTriggerer fez;
     [SerializeField] private float borneArrow;
     [SerializeField] private float speed;
     [SerializeField] private float accelFactor;
@@ -70,6 +71,7 @@ public class SlimeController : MonoBehaviour
 
     public void Collision(Collision2D col)
     {
+        fez.canKill = true;
         normalContact = col.GetContact(0).normal;
         if (_remainingRebound > 0)
         {
@@ -84,6 +86,7 @@ public class SlimeController : MonoBehaviour
         {
             travelling = false;
             animator.SetTrigger(Land);
+            fez.enabled = false;
             _lastAllowedDirection = normalContact;
             transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, normalContact));
             slimeRb.velocity = Vector2.zero;
@@ -107,6 +110,7 @@ public class SlimeController : MonoBehaviour
         if (_timer < jumpTimerAtLanding) return;
         onWall = false;
         travelling = true;
+        fez.enabled = true;
         slimeRb.bodyType = RigidbodyType2D.Dynamic;
         transform.rotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, _launchDirection));
         slimeBody.localRotation = Quaternion.Euler(0, 0, 0);
@@ -114,11 +118,12 @@ public class SlimeController : MonoBehaviour
         normalContact = Vector2.zero;
     }
 
-    public void Deflect(Vector2 otherDirection)
+    public void Deflect()
     {
         canJump = true;
-        slimeRb.velocity -= slimeRb.velocity;
-        _launchDirection = otherDirection;
+        slimeRb.velocity = Vector2.zero;
+        _launchDirection = -_launchDirection;
+        Launch();
     }
 
     public void OnMoveInput(InputAction.CallbackContext ctx)
