@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class BouncyZone : MonoBehaviour, IEffect
 {
-    private Animator animator;
+    //private Animator animator;
     private SoundManager sm;
     private static readonly int Bounce = Animator.StringToHash("Bounce");
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         sm = SoundManager.instance;
     }
 
@@ -19,8 +19,8 @@ public class BouncyZone : MonoBehaviour, IEffect
     {
         slimeController._remainingRebound++;
         slimeController._maxRebound++;
-        sm.PlaySound(slimeController.infos,4);
-        animator.SetTrigger(Bounce);
+        sm.PlaySound(slimeController.infos,3);
+        //animator.SetTrigger(Bounce);
         
     }
 }

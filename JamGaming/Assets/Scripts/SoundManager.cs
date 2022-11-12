@@ -7,12 +7,19 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private List<AudioClip> musicClips = new List<AudioClip>();
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private List<AudioClip> soundClips = new List<AudioClip>();
+    [SerializeField] private List<Sound> soundClips = new ();
     private List<AudioSource> globalSources = new ();
-    private Dictionary<PlayerInfo, List<AudioSource>> sources = new Dictionary<PlayerInfo, List<AudioSource>>();
+    private Dictionary<PlayerInfo, List<AudioSource>> sourceDict = new Dictionary<PlayerInfo, List<AudioSource>>();
 
     private bool isInLoop = true;
     public static SoundManager instance = null;
+    
+    [Serializable]
+    public class Sound
+    {
+        public AudioClip clip;
+        [Range(0f,1f)] public float volume = 1f;
+    }
 
     private void Awake()
     {
@@ -31,11 +38,13 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         PlayMenuMusic();
-        foreach (var clip in soundClips)
+        foreach (var sound in soundClips)
         {
             var source = gameObject.AddComponent<AudioSource>();
-            source.clip = clip;
+            source.clip = sound.clip;
+            source.volume = sound.volume;
             source.loop = false;
+            source.playOnAwake = false;
             globalSources.Add(source);
         }
     }
@@ -66,6 +75,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayMenuMusic()
     {
+        musicSource.volume = 0.2f;
         PlayMusic(2);
     }
 
@@ -77,26 +87,37 @@ public class SoundManager : MonoBehaviour
     public void CreateSources(PlayerInfo player)
     {
         var audioSources = new List<AudioSource>();
-        foreach (var clip in soundClips)
+        foreach (var sound in soundClips)
         {
             var source = gameObject.AddComponent<AudioSource>();
-            source.clip = clip;
+            source.clip = sound.clip;
+            source.volume = sound.volume;
+            source.loop = false;
+            source.playOnAwake = false;
             audioSources.Add(source);
         }
 
-        sources.Add(player, audioSources);
+        sourceDict.Add(player, audioSources);
     }
 
     public void ClearSources()
     {
-        sources.Clear();
+        foreach (var player in sourceDict.Keys)
+        {
+            foreach (var source in sourceDict[player])
+            {
+                Destroy(source);
+            }
+            
+        }
+        sourceDict.Clear();
     }
 
     public void PlaySound(PlayerInfo player, int index)
     {
-        if (!sources.ContainsKey(player)) return;
-        if (index < 0 || index >= sources[player].Count) return;
-        sources[player][index].Play();
+        if (!sourceDict.ContainsKey(player)) return;
+        if (index < 0 || index >= sourceDict[player].Count) return;
+        sourceDict[player][index].Play();
     }
 
     public void PlaySound(int index)
