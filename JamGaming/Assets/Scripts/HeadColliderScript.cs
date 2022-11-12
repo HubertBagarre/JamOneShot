@@ -7,7 +7,7 @@ public class HeadColliderScript : MonoBehaviour
 {
     public SlimeController slimeController;
     
-    private GameObject _lastCol;
+    public GameObject _lastCol;
     
     private void OnTriggerEnter2D(Collider2D col)
     {

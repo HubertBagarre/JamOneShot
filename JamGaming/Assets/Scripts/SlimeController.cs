@@ -107,6 +107,7 @@ public class SlimeController : MonoBehaviour
 
     private void Launch()
     {
+        Debug.Log("StartLaunch");
         if (!canJump) return;
         if (_timer < jumpTimerAtLanding) return;
         onWall = false;
@@ -117,6 +118,7 @@ public class SlimeController : MonoBehaviour
         slimeBody.localRotation = Quaternion.Euler(0, 0, 0);
         slimeRb.AddForce(_launchDirection * launchStrength, ForceMode2D.Impulse);
         normalContact = Vector2.zero;
+        Debug.Log("Launch !");
     }
 
     public void Deflect()

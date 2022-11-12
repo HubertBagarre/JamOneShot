@@ -581,6 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeController: {fileID: 4813585092822271021}
+  _lastCol: {fileID: 0}
 --- !u!1 &4912447910035876322
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +666,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3430750864434219313, guid: dc66c69da254b834fbe56166b935a159, type: 3}
+      propertyPath: headCol
+      value: 
+      objectReference: {fileID: 7479293232358883925}
     - target: {fileID: 3430750864434219313, guid: dc66c69da254b834fbe56166b935a159, type: 3}
       propertyPath: controller
       value: 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class EffectTriggerer : MonoBehaviour
 {
     public SlimeController controller;
+    public HeadColliderScript headCol;
     public bool canKill;
     private float _timer;
 
@@ -16,6 +17,7 @@ public class EffectTriggerer : MonoBehaviour
             canKill = false;
             Debug.Log("Deflect !");
             controller.Deflect();
+            headCol._lastCol = col.gameObject;
         }
         else
         {
