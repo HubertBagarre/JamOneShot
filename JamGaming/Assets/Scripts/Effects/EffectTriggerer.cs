@@ -25,6 +25,7 @@ public class EffectTriggerer : MonoBehaviour
             var head = col.GetComponent<HeadColliderScript>();
             if(head!=null) GameManager.instance.EliminatePlayer(head.slimeController.infos.playerIndex);
             controller.Deflect();
+            headCol._lastCol = col.gameObject;
             head.slimeController.fezCollider.enabled = false;
             controller.fezCollider.enabled = false;
         }
