@@ -115,7 +115,6 @@ public class GameManager : MonoBehaviour
 
     private void StartNewRound()
     {
-        Debug.Log($"Starting Round up  game with {players.Count} players");
         currentRound++;
         ChangeMap();
         elapsedTime = 0;
@@ -128,7 +127,8 @@ public class GameManager : MonoBehaviour
                 transform1.position = currentMap.spawnPoints[i].position;
                 transform1.localRotation = currentMap.spawnPoints[i].localRotation;
                 player.ResetNormal();
-                player.gameObject.SetActive(true);
+                //player.gameObject.SetActive(true);
+                player.transform.localScale = Vector3.one;
                 player.isAlive = true;
                 player.SetHatActive(true);
                 player.CanLook(true);
@@ -196,20 +196,17 @@ public class GameManager : MonoBehaviour
 
     private void CheckToEndRound()
     {
-        Debug.Log($"Checking Round End");
         var alive = 0;
         foreach (var player in players)
         {
             if (player.isAlive) alive++;
         }
-        Debug.Log($"{alive} players Left!");
-        if(alive>1) return;
+        if(alive != 1) return;
         EndRound();
     }
 
     private void EndRound()
     {
-        Debug.Log($"Ending Round");
         foreach (var player in players)
         {
             player.IncreaseScore();
@@ -220,7 +217,6 @@ public class GameManager : MonoBehaviour
 
     private void ChangeMap()
     {
-        Debug.Log($"Changing Map");
         if(currentMapObj!=null) currentMapObj.SetActive(false);
         if (spawnedMaps.Count <= 0)
         {
@@ -236,10 +232,10 @@ public class GameManager : MonoBehaviour
 
     public void EliminatePlayer(int playerIndex)
     {
-        Debug.Log($"Killing player {playerIndex}");
         var player = players[playerIndex];
         player.isAlive = false;
-        player.gameObject.SetActive(false);
+        //player.gameObject.SetActive(false);
+        player.transform.localScale = Vector3.zero;
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.CanMove(false);
         player.SetHatActive(false);
