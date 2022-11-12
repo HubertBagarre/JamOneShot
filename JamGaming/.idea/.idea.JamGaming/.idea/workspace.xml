@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d04c205-4ed8-4660-85db-720dd1964556" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JamGaming/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Bouncer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Bouncer.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Bouncer_0.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Bouncer_0.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Bouncer_Collide.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graph/Animation/Bouncer_Collide.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MapParts/BouncyZone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MapParts/BouncyZone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Shipped/MenuScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Shipped/MenuScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestEffects.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestEffects.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Effects/BouncyZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Effects/BouncyZone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Managers/Game Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Managers/Game Manager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
@@ -80,7 +68,7 @@
       <updated>1668157244964</updated>
       <workItem from="1668157259483" duration="7714000" />
       <workItem from="1668179468870" duration="11804000" />
-      <workItem from="1668243681528" duration="7061000" />
+      <workItem from="1668243681528" duration="7550000" />
     </task>
     <servers />
   </component>
