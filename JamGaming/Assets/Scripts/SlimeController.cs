@@ -11,7 +11,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private Transform slimeBody;
     [SerializeField] private Transform slimeBase;
     [SerializeField] private EffectTriggerer fez;
-    [SerializeField] private CapsuleCollider2D fezCollider;
+    [SerializeField] private Collider2D fezCollider;
     [SerializeField] private float borneArrow;
     [SerializeField] private float speed;
     [SerializeField] private float accelFactor;
@@ -20,6 +20,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private Animator animator;
 
     public PlayerInfo infos;
+    private SoundManager sm;
 
     public Vector2 normalContact;
     private Vector2 _launchDirection;
@@ -46,6 +47,7 @@ public class SlimeController : MonoBehaviour
         infos = GetComponent<PlayerInfo>();
         animator = GetComponent<Animator>();
         jumpWait = new WaitForSeconds(0.1f);
+        sm = SoundManager.instance;
     }
 
     private void Update()
@@ -81,6 +83,7 @@ public class SlimeController : MonoBehaviour
             slimeRb.velocity = _launchDirection.normalized * speed *
                                (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
             animator.SetTrigger(Bounce);
+            sm.PlaySound(infos,3);
             Launch();
         }
         else
