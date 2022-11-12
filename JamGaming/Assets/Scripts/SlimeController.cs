@@ -97,6 +97,7 @@ public class SlimeController : MonoBehaviour
             slimeRb.bodyType = RigidbodyType2D.Kinematic;
             _timer = 0;
             onWall = true;
+            sm.PlaySound(infos,2);
             ShowBase(true);
         }
     }
@@ -105,6 +106,7 @@ public class SlimeController : MonoBehaviour
     {
         yield return jumpWait;
         ShowBase(false);
+        sm.PlaySound(infos,0);
         Launch();
     }
 

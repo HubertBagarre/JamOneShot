@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     private void SetupGame()
     {
         Debug.Log($"Setting up  game with {players.Count} players");
-        sm.PlayMusic(0);
+        sm.StartGameMusic();
         ScoreDisplayer.maxScore = targetScore;
         playedMaps.Clear();
         currentRound = -1;
@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
             Destroy(player.gameObject);
         }
         players.Clear();
-        sm.StopMusic();
+        sm.PlayMenuMusic();
         SceneManager.LoadScene(1);
     }
 
@@ -226,7 +226,7 @@ public class GameManager : MonoBehaviour
     {
         var player = players[playerIndex];
         player.isAlive = false;
-        //player.gameObject.SetActive(false);
+        sm.PlaySound(player,1);
         player.transform.localScale = Vector3.zero;
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.CanMove(false);
