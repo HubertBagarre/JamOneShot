@@ -93,14 +93,14 @@ public class SlimeController : MonoBehaviour
             slimeRb.bodyType = RigidbodyType2D.Kinematic;
             _timer = 0;
             onWall = true;
-            slimeBase.gameObject.SetActive(true);
+            ShowBase(true);
         }
     }
 
     private IEnumerator LateJump()
     {
         yield return jumpWait;
-        slimeBase.gameObject.SetActive(false);
+        ShowBase(false);
         Launch();
     }
 
@@ -168,5 +168,10 @@ public class SlimeController : MonoBehaviour
         _remainingRebound = 3;
         _maxRebound = _remainingRebound;
         StartCoroutine(LateJump());
+    }
+
+    public void ShowBase(bool value)
+    {
+        slimeBase.gameObject.SetActive(value);
     }
 }
