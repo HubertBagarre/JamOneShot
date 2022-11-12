@@ -11,7 +11,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private Transform slimeBody;
     [SerializeField] private Transform slimeBase;
     [SerializeField] private EffectTriggerer fez;
-    [SerializeField] private Collider2D fezCollider;
+    public Collider2D fezCollider;
     [SerializeField] private float borneArrow;
     [SerializeField] private float speed;
     [SerializeField] private float accelFactor;
@@ -106,13 +106,13 @@ public class SlimeController : MonoBehaviour
     {
         yield return jumpWait;
         ShowBase(false);
+        fezCollider.enabled = true;
         sm.PlaySound(infos,0);
         Launch();
     }
 
     private void Launch()
     {
-        Debug.Log("StartLaunch");
         if (!canJump) return;
         if (_timer < jumpTimerAtLanding) return;
         onWall = false;
@@ -123,7 +123,6 @@ public class SlimeController : MonoBehaviour
         slimeBody.localRotation = Quaternion.Euler(0, 0, 0);
         slimeRb.AddForce(_launchDirection * launchStrength, ForceMode2D.Impulse);
         normalContact = Vector2.zero;
-        Debug.Log("Launch !");
     }
 
     public void Deflect()
