@@ -56,6 +56,7 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(PlayerInfo player, int index)
     {
         if(!sources.ContainsKey(player)) return;
+        if(index < 0 || index > sources[player].Count) return;
         sources[player][index].Play();
     }
 }
