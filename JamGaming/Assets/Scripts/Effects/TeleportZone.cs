@@ -19,12 +19,12 @@ public class TeleportZone : MonoBehaviour, IEffect
         var player = slimeController.GetComponent<PlayerInfo>();
         if(!player.canTeleport) return;
         player.canTeleport = false;
-        var slimeTransform = slimeController.transform;
+        var slimeTransform = slimeController.infos.transform;
         var rb = slimeController.slimeRb;
         var velocity = rb.velocity;
         var enterVelocity = transform.InverseTransformDirection(velocity);
         var exitVelocity = otherPortal.TransformDirection(enterVelocity);
-        slimeTransform.position = otherPortal.position;
+        slimeTransform.position = otherPortal.position+otherPortal.right*-0.5f;
         rb.velocity = exitVelocity * -1;
         StartCoroutine(TpCdRoutine(player));
     }
