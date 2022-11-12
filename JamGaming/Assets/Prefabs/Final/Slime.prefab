@@ -281,7 +281,7 @@ MonoBehaviour:
   slimeBody: {fileID: 4813585092992409778}
   slimeBase: {fileID: 306015949}
   fez: {fileID: 8217004323483771681}
-  fezCollider: {fileID: 517515895582233052}
+  fezCollider: {fileID: 0}
   borneArrow: 0.025
   speed: 10
   accelFactor: 0.01
@@ -681,11 +681,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: dc66c69da254b834fbe56166b935a159, type: 3}
---- !u!70 &517515895582233052 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 6537614402871507916, guid: dc66c69da254b834fbe56166b935a159, type: 3}
-  m_PrefabInstance: {fileID: 6743243646112246288}
-  m_PrefabAsset: {fileID: 0}
 --- !u!212 &5548194646258188478 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1255367387769711278, guid: dc66c69da254b834fbe56166b935a159, type: 3}
