@@ -25,22 +25,21 @@ public class PlayerSlot : MonoBehaviour
 
     public void UpdatePlayerReady()
     {
+        sm.PlaySound(4);
         playerNameText.text = $"Player {playerInfo.playerIndex}";
         faceObject.SetActive(true);
-        sm.PlaySound(playerInfo,4);
     }
 
     public void UpdateModel(Color color,Sprite hat)
     {
+        sm.PlaySound(4);
         modelImage.color = color;
         hatImage.sprite = hat;
-        sm.PlaySound(playerInfo,4);
     }
 
     public void UpdateReady()
     {
         sm.PlaySound(4);
         readyPanel.SetActive(playerInfo.isReady);
-        sm.PlaySound(playerInfo,4);
     }
 }

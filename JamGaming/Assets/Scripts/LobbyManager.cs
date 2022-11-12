@@ -12,15 +12,16 @@ public class LobbyManager : MonoBehaviour
     [SerializeField] private List<Color> availableColors = new ();
     [SerializeField] private List<Sprite> hats = new ();
     
-    public static LobbyManager instance;
-
+    
     public List<PlayerInfo> players = new ();
+
+    public static LobbyManager instance;
 
     public void Awake()
     {
         instance = this;
     }
-
+    
     public void AddPlayer(PlayerInfo lc)
     {
         lc.playerIndex = players.Count;
