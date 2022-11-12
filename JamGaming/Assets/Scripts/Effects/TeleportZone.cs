@@ -29,7 +29,7 @@ public class TeleportZone : MonoBehaviour, IEffect
         StartCoroutine(TpCdRoutine(player));
     }
 
-    private IEnumerator TpCdRoutine(PlayerInfo player)  
+    private IEnumerator TpCdRoutine(PlayerInfo player)
     {
         yield return wait;
         player.canTeleport = true;

@@ -70,12 +70,13 @@ public class SoundManager : MonoBehaviour
     {
         musicSource.loop = false;
         isInLoop = false;
+        musicSource.volume = 0.3f;
         PlayMusic(0);
     }
 
     public void PlayMenuMusic()
     {
-        musicSource.volume = 0.2f;
+        musicSource.volume = 0.7f;
         PlayMusic(2);
     }
 
