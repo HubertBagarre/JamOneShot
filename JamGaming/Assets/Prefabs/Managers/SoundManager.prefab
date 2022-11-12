@@ -60,7 +60,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 75f724ca0035b5f4fb5d85024705f10b, type: 3}
     volume: 0.5
   - clip: {fileID: 8300000, guid: c11f5d3f240080d45b4d8e01038debf3, type: 3}
-    volume: 1
+    volume: 0.5
 --- !u!82 &4955681241940186242
 AudioSource:
   m_ObjectHideFlags: 0
