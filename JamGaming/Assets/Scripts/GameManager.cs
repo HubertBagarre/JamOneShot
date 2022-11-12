@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<ScoreDisplayer> displayers = new List<ScoreDisplayer>();
     [SerializeField] private TextMeshProUGUI timeDisplayText;
     [SerializeField] private float maxRoundTime = 90f;
-    [SerializeField] private float timeBeforeMove = 3f;
+    [SerializeField] private int timeBeforeMove = 3;
     [SerializeField] private float displayDuration = 5f;
     [SerializeField] private int targetScore = 6;
     [SerializeField] private GameObject scoreOverlayParent;
+    [SerializeField] private TextMeshProUGUI countdownText;
+    private GameObject countDownObj;
     private WaitForSeconds waitScore;
     private WaitForSeconds waitMove;
     
@@ -42,6 +44,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         sm = SoundManager.instance;
+        countDownObj = countdownText.gameObject;
+        countDownObj.SetActive(false);
         SetupGame();
         DisplayScore();
     }
@@ -54,7 +58,7 @@ public class GameManager : MonoBehaviour
         playedMaps.Clear();
         currentRound = -1;
         waitScore = new WaitForSeconds(displayDuration);
-        waitMove = new WaitForSeconds(timeBeforeMove);
+        waitMove = new WaitForSeconds(1);
         foreach (var map in maps)
         {
             var spawned = Instantiate(map, Vector3.zero, Quaternion.identity);
@@ -131,7 +135,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CountdownRoutine()
     {
-        yield return waitMove;
+        countDownObj.SetActive(true);
+        for (int i = timeBeforeMove; i > 0; i--)
+        {
+            countdownText.text = i.ToString();
+            yield return waitMove;
+        }
+        
+        countDownObj.SetActive(false);
         foreach (var player in players)
         {
             player.CanMove(true);
