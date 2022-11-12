@@ -83,7 +83,7 @@ public class SlimeController : MonoBehaviour
             slimeRb.velocity = _launchDirection.normalized * speed *
                                (1 + (_maxRebound + 1 - _remainingRebound) * accelFactor);
             animator.SetTrigger(Bounce);
-            sm.PlaySound(infos,3);
+            sm.PlaySound(infos,0);
             Launch();
         }
         else
