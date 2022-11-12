@@ -65,10 +65,11 @@ MonoBehaviour:
   displayers: []
   timeDisplayText: {fileID: 0}
   maxRoundTime: 90
-  timeBeforeMove: 1
+  timeBeforeMove: 3
   displayDuration: 2
   targetScore: 5
   scoreOverlayParent: {fileID: 0}
+  countdownText: {fileID: 0}
   currentMap: {fileID: 0}
   currentRound: 0
   elapsedTime: 0
