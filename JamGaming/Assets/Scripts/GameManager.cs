@@ -95,13 +95,6 @@ public class GameManager : MonoBehaviour
         if(!timeCanMove) return;
         elapsedTime += Time.deltaTime;
         timeDisplayText.text = ConvertedElapsedTime(elapsedTime);
-        return;
-        if (elapsedTime >= maxRoundTime)
-        {
-            Debug.Log($"Max time {maxRoundTime} has been reached!");
-            StartDeathZone();
-        }
-        
     }
 
     private static string ConvertedElapsedTime(float time)
