@@ -19,7 +19,7 @@ public class BouncyZone : MonoBehaviour, IEffect
     {
         slimeController._remainingRebound++;
         slimeController._maxRebound++;
-        sm.PlaySound(slimeController.infos,4);
+        sm.PlaySound(slimeController.infos,3);
         animator.SetTrigger(Bounce);
         
     }

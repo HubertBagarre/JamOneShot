@@ -14,8 +14,11 @@ public class PlayerSlot : MonoBehaviour
     [SerializeField] private GameObject readyPanel;
     [SerializeField] private GameObject faceObject;
 
+    private SoundManager sm;
+
     private void Start()
     {
+        sm = SoundManager.instance;
         readyPanel.SetActive(false);
         faceObject.SetActive(false);
     }
@@ -24,16 +27,20 @@ public class PlayerSlot : MonoBehaviour
     {
         playerNameText.text = $"Player {playerInfo.playerIndex}";
         faceObject.SetActive(true);
+        sm.PlaySound(playerInfo,4);
     }
 
     public void UpdateModel(Color color,Sprite hat)
     {
         modelImage.color = color;
         hatImage.sprite = hat;
+        sm.PlaySound(playerInfo,4);
     }
 
     public void UpdateReady()
     {
+        sm.PlaySound(4);
         readyPanel.SetActive(playerInfo.isReady);
+        sm.PlaySound(playerInfo,4);
     }
 }
