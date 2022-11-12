@@ -209,10 +209,18 @@ MonoBehaviour:
   inputAxis: {x: 0, y: 0}
   slimeBody: {fileID: 2013020533481570285}
   slimeBase: {fileID: 8653723888552819721}
+  fez: {fileID: 0}
   borneArrow: 0
   speed: 0
   accelFactor: 0
   launchStrength: 10
+  jumpTimerAtLanding: 0
+  animator: {fileID: 0}
+  infos: {fileID: 0}
+  normalContact: {x: 0, y: 0}
+  _remainingRebound: 0
+  _maxRebound: 0
+  _timer: 0
   slimeRb: {fileID: 6605470020350853240}
   onWall: 0
   canLook: 0
@@ -702,3 +710,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 9173938281706318180}
+  canKill: 0

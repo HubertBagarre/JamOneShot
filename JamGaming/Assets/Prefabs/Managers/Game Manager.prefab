@@ -64,7 +64,7 @@ MonoBehaviour:
   timeDisplayText: {fileID: 0}
   maxRoundTime: 90
   timeBeforeMove: 1
-  displayDuration: 1
+  displayDuration: 5
   targetScore: 3
   scoreOverlayParent: {fileID: 0}
   currentMap: {fileID: 0}

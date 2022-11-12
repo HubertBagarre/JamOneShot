@@ -9,6 +9,7 @@ public class ScoreDisplayer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI playerNameText;
     [SerializeField] private Image bar;
+    public static float maxScore;
 
     void Start()
     {
@@ -25,5 +26,6 @@ public class ScoreDisplayer : MonoBehaviour
     public void UpdateScore(int score)
     {
         scoreText.text = score.ToString();
+        bar.fillAmount = (score+1)/(maxScore+1);
     }
 }

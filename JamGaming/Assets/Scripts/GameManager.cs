@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Setting up  game with {players.Count} players");
         sm.PlayMusic(0);
+        ScoreDisplayer.maxScore = targetScore;
         playedMaps.Clear();
         currentRound = -1;
         waitScore = new WaitForSeconds(displayDuration);
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
         if(!timeCanMove) return;
         elapsedTime += Time.deltaTime;
         timeDisplayText.text = ConvertedElapsedTime(elapsedTime);
+        return;
         if (elapsedTime >= maxRoundTime)
         {
             Debug.Log($"Max time {maxRoundTime} has been reached!");
@@ -206,6 +208,7 @@ public class GameManager : MonoBehaviour
         foreach (var player in players)
         {
             player.IncreaseScore();
+            player.CanMove(false);
             player.CanLook(false);
         }
         DisplayScore();
@@ -234,7 +237,6 @@ public class GameManager : MonoBehaviour
         player.transform.localScale = Vector3.zero;
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.CanMove(false);
-        player.SetHatActive(false);
         CheckToEndRound();
     }
 }
