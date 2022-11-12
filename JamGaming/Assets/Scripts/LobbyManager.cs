@@ -9,8 +9,9 @@ using Random = UnityEngine.Random;
 public class LobbyManager : MonoBehaviour
 {
     [SerializeField] private List<PlayerSlot> slots;
-    [SerializeField] private List<Color> availableColors = new List<Color>();
-
+    [SerializeField] private List<Color> availableColors = new ();
+    [SerializeField] private List<Sprite> hats = new ();
+    
     public static LobbyManager instance;
 
     public List<PlayerInfo> players = new ();
@@ -38,7 +39,7 @@ public class LobbyManager : MonoBehaviour
     {
         var newColor = availableColors[Random.Range(0, availableColors.Count)];
         availableColors.Remove(newColor);
-        slots[slotIndex].UpdateColor(newColor);
+        slots[slotIndex].UpdateModel(newColor,hats[0]);
         return newColor;
     }
 
@@ -51,8 +52,25 @@ public class LobbyManager : MonoBehaviour
         var newColor = availableColors[currentIndex];
         availableColors.Remove(newColor);
         availableColors.Add(previousColor);
-        slots[slotIndex].UpdateColor(newColor);
+        slots[slotIndex].UpdateModel(newColor,players[slotIndex].currentHat);
         return newColor;
+    }
+
+    public Sprite GetNewHat(int slotIndex)
+    {
+        var newHat = hats[Random.Range(0, hats.Count)];
+        slots[slotIndex].UpdateModel(players[slotIndex].currentColor,newHat);
+        return newHat;
+    }
+    
+    public Sprite GetNextHat(Sprite currentHat,int slotIndex)
+    {
+        var index = hats.IndexOf(currentHat);
+        index++;
+        if (index >= hats.Count) index = 0;
+        var newHat = hats[index];
+        slots[slotIndex].UpdateModel(players[slotIndex].currentColor,newHat);
+        return newHat;
     }
 
     public void SetReady(int playerIndex)

@@ -26,9 +26,10 @@ public class PlayerSlot : MonoBehaviour
         faceObject.SetActive(true);
     }
 
-    public void UpdateColor(Color color)
+    public void UpdateModel(Color color,Sprite hat)
     {
         modelImage.color = color;
+        hatImage.sprite = hat;
     }
 
     public void UpdateReady()

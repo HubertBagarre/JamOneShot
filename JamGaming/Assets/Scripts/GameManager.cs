@@ -235,7 +235,6 @@ public class GameManager : MonoBehaviour
         player.transform.localScale = Vector3.zero;
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.CanMove(false);
-        player.SetHatActive(false);
         CheckToEndRound();
     }
 }
