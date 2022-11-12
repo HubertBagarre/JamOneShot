@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a152f54c5f029704ab4f065f227ffee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportCd: 0.5
+  teleportCd: 0.25
   otherPortal: {fileID: 7561983595643648594}
 --- !u!70 &4020556673716848593
 CapsuleCollider2D:
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a152f54c5f029704ab4f065f227ffee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportCd: 0.5
+  teleportCd: 0.25
   otherPortal: {fileID: 5272394627052277371}
 --- !u!70 &2689410095278171035
 CapsuleCollider2D:
