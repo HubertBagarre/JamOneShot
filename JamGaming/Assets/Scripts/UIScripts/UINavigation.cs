@@ -15,25 +15,25 @@ public class UINavigation : MonoBehaviour
 
     public void GoToLobby()
     {
-        sm.PlaySound(5);
+        sm.PlaySound(4);
         SceneManager.LoadScene(2);
     }
 
     public void GoToCredits()
     {
-        sm.PlaySound(5);
+        sm.PlaySound(4);
         SceneManager.LoadScene(1);
     }
 
     public void GoToMenu()
     {
-        sm.PlaySound(5);
+        sm.PlaySound(4);
         SceneManager.LoadScene(0);
     }
 
     public void GoToBrazil()
     {
-        sm.PlaySound(5);
+        sm.PlaySound(4);
         Application.Quit();
     }
 }

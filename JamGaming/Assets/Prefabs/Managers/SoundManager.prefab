@@ -50,7 +50,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9f56513e438c75f4f8eb11042cdfa3c1, type: 3}
   - {fileID: 8300000, guid: ec0eeaa7561b8c740a65ae2659e8adce, type: 3}
   musicSource: {fileID: 4955681241940186242}
-  soundClips: []
+  soundClips:
+  - clip: {fileID: 8300000, guid: 054e3b5b21afc344ca6f84cbd9fc7225, type: 3}
+    volume: 1
+  - clip: {fileID: 8300000, guid: bbc782d414ee0c34eb2301cf7111bfa5, type: 3}
+    volume: 1
+  - clip: {fileID: 8300000, guid: 054e3b5b21afc344ca6f84cbd9fc7225, type: 3}
+    volume: 1
+  - clip: {fileID: 8300000, guid: 75f724ca0035b5f4fb5d85024705f10b, type: 3}
+    volume: 0.5
+  - clip: {fileID: 8300000, guid: c11f5d3f240080d45b4d8e01038debf3, type: 3}
+    volume: 1
 --- !u!82 &4955681241940186242
 AudioSource:
   m_ObjectHideFlags: 0
