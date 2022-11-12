@@ -758,8 +758,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Un jeu de :\nHubert Ramiandrasoa\nMaxime Philippon\nEliott Riva\nNolwenn
-    \nPaul Jarrige"
+  m_text: 'Un jeu de :
+
+    Hubert Ramiandrasoa
+
+    Maxime Philippon
+
+    Eliott
+    Riva
+
+    Nolwenn Barthelemy
+
+    Paul Jarrige'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e65a731c076fea488e5558f156353e6, type: 2}
   m_sharedMaterial: {fileID: -2603966843401121488, guid: 6e65a731c076fea488e5558f156353e6, type: 2}
