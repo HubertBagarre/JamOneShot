@@ -38,6 +38,17 @@ public class PlayerInfo : MonoBehaviour
         SetHatActive(false);
     }
 
+    public void SetupForRound()
+    {
+        ResetNormal();
+        inGameController.slimeRb.velocity = Vector2.zero;
+        transform.localScale = Vector3.one;
+        isAlive = true;
+        SetHatActive(true);
+        CanLook(true);
+        inGameController.ShowBase(true);
+    }
+
     public void ResetNormal()
     {
         inGameController.normalContact = transform.up;

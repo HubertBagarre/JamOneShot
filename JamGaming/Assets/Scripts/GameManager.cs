@@ -126,12 +126,8 @@ public class GameManager : MonoBehaviour
                 var transform1 = player.transform;
                 transform1.position = currentMap.spawnPoints[i].position;
                 transform1.localRotation = currentMap.spawnPoints[i].localRotation;
-                player.ResetNormal();
-                //player.gameObject.SetActive(true);
-                player.transform.localScale = Vector3.one;
-                player.isAlive = true;
-                player.SetHatActive(true);
-                player.CanLook(true);
+                player.SetupForRound();
+                
             }
         }
         StartCoroutine(CountdownRoutine());
