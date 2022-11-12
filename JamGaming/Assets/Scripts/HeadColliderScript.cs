@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HeadColliderScript : MonoBehaviour
 {
-    [SerializeField] private SlimeController slimeController;
+    public SlimeController slimeController;
     
     private GameObject _lastCol;
     

@@ -20,7 +20,8 @@ public class EffectTriggerer : MonoBehaviour
         else
         {
             if (!canKill) return;
-            GameManager.instance.EliminatePlayer(controller.infos.playerIndex);
+            var head = col.GetComponent<HeadColliderScript>();
+            if(head!=null) GameManager.instance.EliminatePlayer(head.slimeController.infos.playerIndex);
         }
     }
 }
