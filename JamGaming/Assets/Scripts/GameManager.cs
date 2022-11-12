@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Setting up  game with {players.Count} players");
         sm.PlayMusic(0);
+        ScoreDisplayer.maxScore = targetScore;
         playedMaps.Clear();
         currentRound = -1;
         waitScore = new WaitForSeconds(displayDuration);
