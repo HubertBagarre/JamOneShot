@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
         if(!timeCanMove) return;
         elapsedTime += Time.deltaTime;
         timeDisplayText.text = ConvertedElapsedTime(elapsedTime);
+        return;
         if (elapsedTime >= maxRoundTime)
         {
             Debug.Log($"Max time {maxRoundTime} has been reached!");
@@ -207,6 +208,7 @@ public class GameManager : MonoBehaviour
         foreach (var player in players)
         {
             player.IncreaseScore();
+            player.CanMove(false);
             player.CanLook(false);
         }
         DisplayScore();

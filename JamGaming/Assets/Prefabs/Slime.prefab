@@ -243,12 +243,12 @@ MonoBehaviour:
   playerIndex: -1
   isReady: 0
   currentColor: {r: 0, g: 0, b: 0, a: 0}
+  currentHat: {fileID: 0}
   displayer: {fileID: 0}
   score: 0
   isAlive: 0
-  isHatActive: 0
   canTeleport: 1
-  hatParent: {fileID: 8684331866169501435}
+  hatRenderer: {fileID: 5548194646258188478}
   coloredSprites:
   - {fileID: 306015950}
   - {fileID: 4813585092992409781}
@@ -684,6 +684,11 @@ PrefabInstance:
 --- !u!70 &517515895582233052 stripped
 CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 6537614402871507916, guid: dc66c69da254b834fbe56166b935a159, type: 3}
+  m_PrefabInstance: {fileID: 6743243646112246288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5548194646258188478 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1255367387769711278, guid: dc66c69da254b834fbe56166b935a159, type: 3}
   m_PrefabInstance: {fileID: 6743243646112246288}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8217004323483771681 stripped
