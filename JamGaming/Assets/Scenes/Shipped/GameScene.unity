@@ -537,22 +537,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4941008094323439543, guid: 77073c1d3fb511842b76db6673aa98c7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4941008094323439543, guid: 77073c1d3fb511842b76db6673aa98c7, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4941008094323439543, guid: 77073c1d3fb511842b76db6673aa98c7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4941008094323439543, guid: 77073c1d3fb511842b76db6673aa98c7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6126811377893643787, guid: 77073c1d3fb511842b76db6673aa98c7, type: 3}
       propertyPath: m_Name
       value: Gaming Canvas
