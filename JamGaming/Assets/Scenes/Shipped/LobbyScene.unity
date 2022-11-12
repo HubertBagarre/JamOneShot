@@ -956,6 +956,30 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6708400686085995915, guid: 436d2f95186cb2344a751a6227e45a3a, type: 3}
+      propertyPath: hats.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708400686085995915, guid: 436d2f95186cb2344a751a6227e45a3a, type: 3}
+      propertyPath: hats.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 873b565b51c9a47459639d621d582ef5, type: 3}
+    - target: {fileID: 6708400686085995915, guid: 436d2f95186cb2344a751a6227e45a3a, type: 3}
+      propertyPath: hats.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5aad673b285cbc34dbe545aaa2276fb7, type: 3}
+    - target: {fileID: 6708400686085995915, guid: 436d2f95186cb2344a751a6227e45a3a, type: 3}
+      propertyPath: hats.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: a2bc95487a0456247ac4fe2981e40583, type: 3}
+    - target: {fileID: 6708400686085995915, guid: 436d2f95186cb2344a751a6227e45a3a, type: 3}
+      propertyPath: hats.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: bc4d7b1658e0f404995824cf7af140d4, type: 3}
+    - target: {fileID: 6708400686085995915, guid: 436d2f95186cb2344a751a6227e45a3a, type: 3}
+      propertyPath: hats.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ca97b1e0324c7240a3d43031567da04, type: 3}
+    - target: {fileID: 6708400686085995915, guid: 436d2f95186cb2344a751a6227e45a3a, type: 3}
       propertyPath: slots.Array.data[0]
       value: 
       objectReference: {fileID: 2182928097434285877}

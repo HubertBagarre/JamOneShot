@@ -7,14 +7,14 @@ public class PlayerInfo : MonoBehaviour
     public int playerIndex = -1;
     public bool isReady = false;
     public Color currentColor;
+    public Sprite currentHat;
     public ScoreDisplayer displayer;
 
     public int score = 0;
     public bool isAlive = false;
-    public bool isHatActive = false;
     public bool canTeleport = true;
 
-    [SerializeField] private Transform hatParent;
+    [SerializeField] private SpriteRenderer hatRenderer;
     private LobbyController lobbyController;
     private SlimeController inGameController;
     [SerializeField] private List<SpriteRenderer> coloredSprites = new List<SpriteRenderer>();
@@ -35,7 +35,6 @@ public class PlayerInfo : MonoBehaviour
         CanLook(false);
         CanMove(false);
         isAlive = false;
-        SetHatActive(false);
     }
 
     public void SetupForRound()
@@ -44,7 +43,6 @@ public class PlayerInfo : MonoBehaviour
         inGameController.slimeRb.velocity = Vector2.zero;
         transform.localScale = Vector3.one;
         isAlive = true;
-        SetHatActive(true);
         CanLook(true);
         inGameController.ShowBase(true);
     }
@@ -73,12 +71,6 @@ public class PlayerInfo : MonoBehaviour
         inGameController.travelling = !value;
     }
 
-    public void SetHatActive(bool value)
-    {
-        isHatActive = value;
-        hatParent.gameObject.SetActive(isHatActive);
-    }
-
     public void ChangeColor(Color color)
     {
         currentColor = color;
@@ -86,5 +78,11 @@ public class PlayerInfo : MonoBehaviour
         {
             spriteRenderer.color = currentColor;
         }
+    }
+
+    public void ChangeHat(Sprite hat)
+    {
+        currentHat = hat;
+        hatRenderer.sprite = currentHat;
     }
 }
